@@ -3,6 +3,7 @@ public class Luogo {
     private int xStart, yStart;
     private int xGoal, yGoal;
     private int[] xPassaggio, yPassaggio;
+    private Mappa mappa;
 
     public Luogo(String nome) {
         this.nome = nome;
