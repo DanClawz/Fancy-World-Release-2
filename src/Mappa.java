@@ -1,8 +1,9 @@
 import java.io.*;
+import java.util.ArrayList;
 
 public class Mappa {
-    private static final int NRIGHE = 10;
-    private static final int NCOLONNE = 15;
+    static final int NRIGHE = 10;
+    static final int NCOLONNE = 15;
     private BufferedReader b;
     private String mappa = "";
     private char[][] map = {};
@@ -25,21 +26,6 @@ public class Mappa {
         } catch (IOException e) {
             System.err.println("Errore lettura file!");
         }
-    }
-
-    public String stampaMappa(char[][] grigliaAggiornata) {
-        String mappaContorno = "";
-        mappaContorno += "╔═══════════════╗" + "\n";
-
-        for (int i = 0; i < NRIGHE; i++) {
-            mappaContorno += "║";
-            for (int j = 0; j < NCOLONNE; j++) {
-                mappaContorno += grigliaAggiornata[i][j];
-            }
-            mappaContorno += "║" + "\n";
-        }
-        mappaContorno += "╚═══════════════╝" + "\n";
-        return mappaContorno.replace(".", " ");
     }
 
     public String stampaMappaIniziale() {
@@ -81,16 +67,53 @@ public class Mappa {
         return griglia;
     }
 
-    public int[] posizioneIniziale() {
+    public Coordinata posizioneIniziale() {
         for (int i = 0; i < NRIGHE; i++) {
             for (int j = 0; j < NCOLONNE; j++) {
                 if (grid()[i][j] == '●') {
-                    return new int[] {i, j};
+                    return new Coordinata(i, j);
                 }
             }
         }
-        return new int[0];
+        return new Coordinata(-1, -1);
     }
+
+    public ArrayList<Coordinata> posizioneOstacoli() {
+        ArrayList<Coordinata> c = new ArrayList<Coordinata>();
+        for (int i = 0; i < NRIGHE; i++) {
+            for (int j = 0; j < NCOLONNE; j++) {
+                if (grid()[i][j] == '█') {
+                    c.add(new Coordinata(i, j));
+                    System.out.println(c.get(c.size()-1));
+                }
+            }
+        }
+        return c;
+    }
+
+    public ArrayList<Coordinata> posizionePassaggi() {
+        ArrayList<Coordinata> p = new ArrayList<Coordinata>();
+        for (int i = 0; i < NRIGHE; i++) {
+            for (int j = 0; j < NCOLONNE; j++) {
+                if (grid()[i][j] == '○') {
+                    p.add(new Coordinata(i, j));
+                }
+            }
+        }
+        return p;
+    }
+
+    public Coordinata posizioneGoal() {
+        for (int i = 0; i < NRIGHE; i++) {
+            for (int j = 0; j < NCOLONNE; j++) {
+                if (grid()[i][j] == 'X') {
+                    return new Coordinata(i, j);
+                }
+            }
+        }
+        return new Coordinata(-1, -1);
+    }
+
 
     public char[][] getMap() {
         return map;
