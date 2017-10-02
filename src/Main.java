@@ -6,7 +6,14 @@ public class Main {
         //System.out.println(m.posizioneIniziale()[1]);*/
         Luogo l = new Luogo("./src/Mappe/mondo1_luogo1");
         System.out.println(l.stampaMappaAggiornata());
-        l.setPosCorrente(new Coordinata(1, 0));
+
+        l.aggiornaMappa('n');
+        System.out.println(l.stampaMappaAggiornata());
+        l.aggiornaMappa('e');
+        System.out.println(l.stampaMappaAggiornata());
+        l.aggiornaMappa('s');
+        System.out.println(l.stampaMappaAggiornata());
+        l.aggiornaMappa('w');
         System.out.println(l.stampaMappaAggiornata());
 
     }

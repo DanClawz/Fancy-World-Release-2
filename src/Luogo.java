@@ -5,6 +5,7 @@ public class Luogo {
     private ArrayList<Coordinata> passaggi, ostacoli;
     private char[][] mappa;
     private Mappa mappaIniziale;
+    private boolean passaggioRaggiunto, goalRaggiunto;
 
     public Luogo(String nomeFile) {
         mappaIniziale = new Mappa(nomeFile);
@@ -14,6 +15,9 @@ public class Luogo {
         start = mappaIniziale.posizioneIniziale();
         goal = mappaIniziale.posizioneGoal();
         posCorrente = start;
+        passaggioRaggiunto = false;
+        goalRaggiunto = false;
+        System.out.println(":" + posCorrente);
     }
 
     /*public void stampaMappa() {
@@ -40,14 +44,45 @@ public class Luogo {
     }
 
 
-    private void aggiornaMappa(Coordinata posNuova) {
-        System.out.println("Posizione nuova:" + posNuova);
-        System.out.println("Ostacoli: " + ostacoli.toString());
-        for (int i = 0; i < Mappa.NRIGHE; i++) {
-            for (int j = 0; j < Mappa.NCOLONNE; j++) {
+    public void muovi(Coordinata posNew) {
+        mappa[posCorrente.getX()][posCorrente.getY()] = '.';
+        mappa[posNew.getX()][posNew.getY()] = '●';
+        this.posCorrente = posNew;
+    }
+
+    public void aggiornaMappa(char input) {
+
+        Coordinata posNuova = posizioneNuova(input);
+        if (posNuova.getX() < 0) posNuova.setX(0);
+        if (posNuova.getY() < 0) posNuova.setY(0);
+        if (posNuova.getX() > Mappa.NRIGHE) posNuova.setX(Mappa.NRIGHE-1);
+        if (posNuova.getY() > Mappa.NCOLONNE) posNuova.setY(Mappa.NCOLONNE-1);
+        System.out.println(posNuova);
+
+        for (int i = (posCorrente.getX()-1 < 0 ? 0 : posCorrente.getX()-1); i <= (posCorrente.getX()+1 > Mappa.NRIGHE ? posCorrente.getX() : posCorrente.getX()+1); i++) {
+            for (int j = (posCorrente.getY()-1 < 0 ? 0 : posCorrente.getY()-1); j <= (posCorrente.getY()+1 > Mappa.NCOLONNE ? posCorrente.getY() : posCorrente.getY()+1); j++) {
+
+                System.out.println("[" + i + ", " + j + "]");
 
                 if (!ostacoli.contains(posNuova)) {
-                    
+                    System.out.println("Mossa possibile");
+                    muovi(posNuova);
+                }
+
+                /*if (mossaPossibile(input)) {
+
+                    if (passaggi.contains(posNuova)) {
+                        passaggioRaggiunto = true;
+                        System.out.println("Ti trovi su un passaggio.");
+
+                    }
+
+                    if (goal.equals(posNuova)) {
+                        goalRaggiunto = true;
+                        System.out.println("Goal raggiunto");
+
+                    }
+
                     if (mappa[i][j] == '●') {
                         mappa[i][j] = '.';
                     }
@@ -55,21 +90,48 @@ public class Luogo {
                         mappa[i][j] = '●';
                         break;
                     }
+
                 }
-                else System.out.println("Mossa non possibile");
+
+                else System.out.println("Mossa non possibile");*/
             }
         }
+
+    }
+
+    /*public boolean mossaPossibile(char input) {
+        if (input == 'n' && !ostacoli.contains(new Coordinata(posCorrente.getX()-1, posCorrente.getY()))) return true;
+        if (input == 's' && !ostacoli.contains(new Coordinata(posCorrente.getX()+1, posCorrente.getY()))) return true;
+        if (input == 'e' && !ostacoli.contains(new Coordinata(posCorrente.getX(), posCorrente.getY()+1))) return true;
+        if (input == 'w' && !ostacoli.contains(new Coordinata(posCorrente.getX(), posCorrente.getY()-1))) return true;
+        return false;
+    }*/
+
+    private Coordinata posizioneNuova(char input) {
+        if (input == 'n') return new Coordinata(posCorrente.getX()-1, posCorrente.getY());
+        if (input == 's') return new Coordinata(posCorrente.getX()+1, posCorrente.getY());
+        if (input == 'e') return new Coordinata(posCorrente.getX(), posCorrente.getY()+1);
+        if (input == 'w') return new Coordinata(posCorrente.getX(), posCorrente.getY()-1);
+        return null;
     }
 
 
 
-    public void swapPosizioni(Coordinata posNuova) {
-        Coordinata t;
-        t = posCorrente;
-        posCorrente = posNuova;
-        posNuova = t;
+    public boolean isGoalRaggiunto() {
+        return goalRaggiunto;
     }
 
+    public void setGoalRaggiunto(boolean goalRaggiunto) {
+        this.goalRaggiunto = goalRaggiunto;
+    }
+
+    public boolean isPassaggioRaggiunto() {
+        return passaggioRaggiunto;
+    }
+
+    public void setPassaggioRaggiunto(boolean passaggioRaggiunto) {
+        this.passaggioRaggiunto = passaggioRaggiunto;
+    }
 
     public Coordinata getPosCorrente() {
         return posCorrente;
@@ -77,7 +139,6 @@ public class Luogo {
 
     public void setPosCorrente(Coordinata nuovaPosizione) {
         this.posCorrente = nuovaPosizione;
-        aggiornaMappa(nuovaPosizione);
     }
 
     public char[][] getMappa() {
