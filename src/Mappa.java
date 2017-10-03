@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Mappa {
     static final int NRIGHE = 10;
-    static final int NCOLONNE = 15;
+    static final int NCOLONNE = 30;
     private BufferedReader b;
     private String mappa = "";
     private char[][] map = {};
@@ -84,7 +84,7 @@ public class Mappa {
             for (int j = 0; j < NCOLONNE; j++) {
                 if (grid()[i][j] == '█') {
                     c.add(new Coordinata(i, j));
-                    System.out.println(c.get(c.size()-1));
+                    //System.out.println(c.get(c.size()-1));
                 }
             }
         }

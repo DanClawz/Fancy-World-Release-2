@@ -6,8 +6,10 @@ public class Luogo {
     private char[][] mappa;
     private Mappa mappaIniziale;
     private boolean passaggioRaggiunto, goalRaggiunto;
+    private int piano;
 
-    public Luogo(String nomeFile) {
+    public Luogo(String nomeFile, int piano) {
+        this.piano = piano;
         mappaIniziale = new Mappa(nomeFile);
         mappa = mappaIniziale.getMap();
         passaggi = mappaIniziale.posizionePassaggi();
@@ -17,20 +19,19 @@ public class Luogo {
         posCorrente = start;
         passaggioRaggiunto = false;
         goalRaggiunto = false;
-        System.out.println(":" + posCorrente);
     }
 
-    /*public void stampaMappa() {
-
-
-        // settare la stringa mappa
-
-        System.out.println(mappa);
-    }*/
 
     public String stampaMappaAggiornata() {
+
         String mappaContorno = "";
-        mappaContorno += "╔═══════════════╗" + "\n";
+
+        mappaContorno += "╔";
+        for (int i = 0; i < Mappa.NCOLONNE; i++) {
+            mappaContorno += "═";
+        }
+        mappaContorno += "╗" + "\n";
+
 
         for (int i = 0; i < Mappa.NRIGHE; i++) {
             mappaContorno += "║";
@@ -39,73 +40,53 @@ public class Luogo {
             }
             mappaContorno += "║" + "\n";
         }
-        mappaContorno += "╚═══════════════╝" + "\n";
+
+        mappaContorno += "╚";
+        for (int i = 0; i < Mappa.NCOLONNE; i++) {
+            mappaContorno += "═";
+        }
+        mappaContorno += "╝" + "\n";
+
         return mappaContorno.replace(".", " ");
     }
-
 
     public void muovi(Coordinata posNew) {
         mappa[posCorrente.getX()][posCorrente.getY()] = '.';
         mappa[posNew.getX()][posNew.getY()] = '●';
         this.posCorrente = posNew;
+        //System.out.println(posCorrente);
     }
 
     public void aggiornaMappa(char input) {
 
         Coordinata posNuova = posizioneNuova(input);
+        System.out.println(input);
+
         if (posNuova.getX() < 0) posNuova.setX(0);
         if (posNuova.getY() < 0) posNuova.setY(0);
         if (posNuova.getX() > Mappa.NRIGHE) posNuova.setX(Mappa.NRIGHE-1);
         if (posNuova.getY() > Mappa.NCOLONNE) posNuova.setY(Mappa.NCOLONNE-1);
-        System.out.println(posNuova);
 
         for (int i = (posCorrente.getX()-1 < 0 ? 0 : posCorrente.getX()-1); i <= (posCorrente.getX()+1 > Mappa.NRIGHE ? posCorrente.getX() : posCorrente.getX()+1); i++) {
             for (int j = (posCorrente.getY()-1 < 0 ? 0 : posCorrente.getY()-1); j <= (posCorrente.getY()+1 > Mappa.NCOLONNE ? posCorrente.getY() : posCorrente.getY()+1); j++) {
 
-                System.out.println("[" + i + ", " + j + "]");
 
                 if (!ostacoli.contains(posNuova)) {
-                    System.out.println("Mossa possibile");
                     muovi(posNuova);
                 }
 
-                /*if (mossaPossibile(input)) {
-
-                    if (passaggi.contains(posNuova)) {
-                        passaggioRaggiunto = true;
-                        System.out.println("Ti trovi su un passaggio.");
-
-                    }
-
-                    if (goal.equals(posNuova)) {
-                        goalRaggiunto = true;
-                        System.out.println("Goal raggiunto");
-
-                    }
-
-                    if (mappa[i][j] == '●') {
-                        mappa[i][j] = '.';
-                    }
-                    if (i == posNuova.getX() && j == posNuova.getY()) {
-                        mappa[i][j] = '●';
-                        break;
-                    }
+                if (passaggi.contains(posNuova)) {
+                    passaggioRaggiunto = true;
 
                 }
 
-                else System.out.println("Mossa non possibile");*/
+                if (goal.equals(posNuova)) {
+                    goalRaggiunto = true;
+                }
             }
         }
 
     }
-
-    /*public boolean mossaPossibile(char input) {
-        if (input == 'n' && !ostacoli.contains(new Coordinata(posCorrente.getX()-1, posCorrente.getY()))) return true;
-        if (input == 's' && !ostacoli.contains(new Coordinata(posCorrente.getX()+1, posCorrente.getY()))) return true;
-        if (input == 'e' && !ostacoli.contains(new Coordinata(posCorrente.getX(), posCorrente.getY()+1))) return true;
-        if (input == 'w' && !ostacoli.contains(new Coordinata(posCorrente.getX(), posCorrente.getY()-1))) return true;
-        return false;
-    }*/
 
     private Coordinata posizioneNuova(char input) {
         if (input == 'n') return new Coordinata(posCorrente.getX()-1, posCorrente.getY());
@@ -116,6 +97,9 @@ public class Luogo {
     }
 
 
+    public int getPiano() {
+        return piano;
+    }
 
     public boolean isGoalRaggiunto() {
         return goalRaggiunto;
