@@ -67,8 +67,12 @@ public class Luogo {
         if (posNuova.getX() > Mappa.NRIGHE) posNuova.setX(Mappa.NRIGHE-1);
         if (posNuova.getY() > Mappa.NCOLONNE) posNuova.setY(Mappa.NCOLONNE-1);
 
-        for (int i = (posCorrente.getX()-1 < 0 ? 0 : posCorrente.getX()-1); i <= (posCorrente.getX()+1 > Mappa.NRIGHE ? posCorrente.getX() : posCorrente.getX()+1); i++) {
-            for (int j = (posCorrente.getY()-1 < 0 ? 0 : posCorrente.getY()-1); j <= (posCorrente.getY()+1 > Mappa.NCOLONNE ? posCorrente.getY() : posCorrente.getY()+1); j++) {
+        /*
+        Pseudocodice:
+        ...
+         */
+        for (int i = (posCorrente.getX()-1 < 0 ? 0 : posCorrente.getX()-1); i <= (posCorrente.getX()+1 > Mappa.NRIGHE ? posCorrente.getX() : posCorrente.getX()+1); i++) {          //riscrivere eventualmente
+            for (int j = (posCorrente.getY()-1 < 0 ? 0 : posCorrente.getY()-1); j <= (posCorrente.getY()+1 > Mappa.NCOLONNE ? posCorrente.getY() : posCorrente.getY()+1); j++) {    //riscrivere eventualmente
 
 
                 if (!ostacoli.contains(posNuova)) {
@@ -135,6 +139,10 @@ public class Luogo {
 
     public Coordinata getStart() {
         return start;
+    }
+
+    public void setStart(Coordinata start) {
+        this.start = start;
     }
 
     public Coordinata getGoal() {

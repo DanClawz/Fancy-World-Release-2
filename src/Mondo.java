@@ -4,7 +4,7 @@ import java.util.Vector;
 public class Mondo {
 
     private ArrayList<Luogo> mondo;
-    private Luogo luogoAttivo;
+    //private Luogo luogoAttivo;
     private int pianoCorrente;
 
     public Mondo(String nome) {
@@ -14,13 +14,52 @@ public class Mondo {
             nomeFile += "./src/Mappe/" + nome + "_luogo" + i;
             mondo.add(new Luogo(nomeFile, i));
         }
-        pianoCorrente = 1;
-        luogoAttivo = mondo.get(pianoCorrente-1);
+        pianoCorrente = 0;
+        //luogoAttivo = mondo.get(pianoCorrente);
 
     }
 
     public void cambioLuogo(char input) {
-        if (input == 'u' && luogoAttivo.isPassaggioRaggiunto() && this.pianoCorrente < mondo.size()) luogoAttivo = mondo.get(++this.pianoCorrente);
-        else if (input == 'd' && luogoAttivo.isPassaggioRaggiunto() && this.pianoCorrente > 0) luogoAttivo = mondo.get(--this.pianoCorrente);
+        Coordinata temp = mondo.get(pianoCorrente).getPosCorrente();
+        boolean passaggioUguale = false;
+
+
+        int l = 0;
+        if (input == 'u' && pianoCorrente == 2) {
+            //??
+        }
+
+
+        for (Coordinata p : mondo.get(pianoCorrente).getPassaggi()) {
+            for (Coordinata c : mondo.get((input == 'u') ? pianoCorrente+1 : pianoCorrente-1).getPassaggi()) {
+                if (p.equals(c)) {
+                    passaggioUguale = true;
+                    System.out.println(passaggioUguale);
+                    break;
+                }
+            }
+
+
+        }
+
+        if (input == 'u' && mondo.get(pianoCorrente).isPassaggioRaggiunto() && this.pianoCorrente < mondo.size()-1 && passaggioUguale && mondo.get(pianoCorrente).getPosCorrente().equals()) {
+            ++this.pianoCorrente;
+
+        }
+        else if (input == 'd' && mondo.get(pianoCorrente).isPassaggioRaggiunto() && this.pianoCorrente > 0 && passaggioUguale) {
+            --this.pianoCorrente;
+
+        }
+        mondo.get(pianoCorrente).setPosCorrente(temp);
+        //System.out.println(luogoAttivo.getPassaggi());
+        mondo.get(pianoCorrente).muovi(temp);
+    }
+
+    public ArrayList<Luogo> getMondo() {
+        return mondo;
+    }
+
+    public int getPianoCorrente() {
+        return pianoCorrente;
     }
 }
