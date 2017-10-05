@@ -22,34 +22,46 @@ public class Mondo {
     public void cambioLuogo(char input) {
         Coordinata temp = mondo.get(pianoCorrente).getPosCorrente();
         boolean passaggioUguale = false;
+        int nuovoPiano = -1;
+
+        if (input == 'u' && !(pianoCorrente + 1 > 2)) nuovoPiano = pianoCorrente+1;
+        else if (input == 'd' && !(pianoCorrente - 1 < 0)) nuovoPiano = pianoCorrente-1;
+        else nuovoPiano = pianoCorrente;
 
 
-        int l = 0;
-        if (input == 'u' && pianoCorrente == 2) {
-            //??
-        }
 
 
         for (Coordinata p : mondo.get(pianoCorrente).getPassaggi()) {
-            for (Coordinata c : mondo.get((input == 'u') ? pianoCorrente+1 : pianoCorrente-1).getPassaggi()) {
-                if (p.equals(c)) {
+            for (Coordinata c : mondo.get(nuovoPiano).getPassaggi()) {
+
+                if (!(pianoCorrente + 1 > 2) && p.equals(c) && mondo.get((pianoCorrente+1)).getPassaggi().contains(mondo.get(pianoCorrente).getPosCorrente()) && input == 'u') {
                     passaggioUguale = true;
-                    System.out.println(passaggioUguale);
+                    System.out.println("u: " + passaggioUguale);
+                    mondo.get(pianoCorrente+1).setPassaggioRaggiunto(true);
                     break;
                 }
+
+                if (!(pianoCorrente - 1 < 0) && p.equals(c) && mondo.get(pianoCorrente-1).getPassaggi().contains(mondo.get(pianoCorrente).getPosCorrente()) && input == 'd') {
+                    passaggioUguale = true;
+                    System.out.println("d: " + passaggioUguale);
+                    mondo.get(pianoCorrente-1).setPassaggioRaggiunto(true);
+                    break;
+                }
+
             }
 
-
         }
 
-        if (input == 'u' && mondo.get(pianoCorrente).isPassaggioRaggiunto() && this.pianoCorrente < mondo.size()-1 && passaggioUguale && mondo.get(pianoCorrente).getPosCorrente().equals()) {
+        if (input == 'u' && mondo.get(pianoCorrente).isPassaggioRaggiunto() && this.pianoCorrente < mondo.size()-1 && passaggioUguale) {
             ++this.pianoCorrente;
+            System.out.println("Up");
 
         }
-        else if (input == 'd' && mondo.get(pianoCorrente).isPassaggioRaggiunto() && this.pianoCorrente > 0 && passaggioUguale) {
+        else if (input == 'd' && mondo.get(pianoCorrente).isPassaggioRaggiunto() && this.pianoCorrente >= 0 && passaggioUguale) {
             --this.pianoCorrente;
-
+            System.out.println("Down");
         }
+
         mondo.get(pianoCorrente).setPosCorrente(temp);
         //System.out.println(luogoAttivo.getPassaggi());
         mondo.get(pianoCorrente).muovi(temp);

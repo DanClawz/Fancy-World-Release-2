@@ -51,7 +51,8 @@ public class Luogo {
     }
 
     public void muovi(Coordinata posNew) {
-        mappa[posCorrente.getX()][posCorrente.getY()] = '.';
+        if (passaggi.contains(posCorrente)) mappa[posCorrente.getX()][posCorrente.getY()] = '○';
+        else mappa[posCorrente.getX()][posCorrente.getY()] = '.';
         mappa[posNew.getX()][posNew.getY()] = '●';
         this.posCorrente = posNew;
         //System.out.println(posCorrente);
@@ -81,15 +82,15 @@ public class Luogo {
 
                 if (passaggi.contains(posNuova)) {
                     passaggioRaggiunto = true;
-
                 }
+                else passaggioRaggiunto = false;
 
                 if (goal.equals(posNuova)) {
                     goalRaggiunto = true;
                 }
+                else goalRaggiunto = false;
             }
         }
-
     }
 
     private Coordinata posizioneNuova(char input) {

@@ -20,12 +20,41 @@ public class Main {
         Mondo m = new Mondo("mondo1");
         m.getMondo().get(m.getPianoCorrente()).muovi(new Coordinata(8, 24));
         m.getMondo().get(m.getPianoCorrente()).aggiornaMappa('e');
-        m.cambioLuogo('u');
-        System.out.println(m.getMondo().get(m.getPianoCorrente()).stampaMappaAggiornata());
-        m.getMondo().get(m.getPianoCorrente()).aggiornaMappa('s');
-        m.getMondo().get(m.getPianoCorrente()).aggiornaMappa('n');
         m.cambioLuogo('d');
         System.out.println(m.getMondo().get(m.getPianoCorrente()).stampaMappaAggiornata());
+        m.cambioLuogo('d');
+        System.out.println(m.getMondo().get(m.getPianoCorrente()).stampaMappaAggiornata());
+        m.cambioLuogo('u');
+        System.out.println(m.getMondo().get(m.getPianoCorrente()).stampaMappaAggiornata());
+        m.cambioLuogo('d');
+        System.out.println(m.getMondo().get(m.getPianoCorrente()).stampaMappaAggiornata());
+        m.cambioLuogo('u');
+        System.out.println(m.getMondo().get(m.getPianoCorrente()).stampaMappaAggiornata());
+
+
+
+
+        m.getMondo().get(m.getPianoCorrente()).muovi(new Coordinata(1, 0));
+        m.getMondo().get(m.getPianoCorrente()).aggiornaMappa('n');
+        System.out.println(m.getMondo().get(m.getPianoCorrente()).stampaMappaAggiornata());
+        m.cambioLuogo('u');
+        System.out.println(m.getMondo().get(m.getPianoCorrente()).stampaMappaAggiornata());
+        m.cambioLuogo('d');
+        System.out.println(m.getMondo().get(m.getPianoCorrente()).stampaMappaAggiornata());
+        m.cambioLuogo('u');
+        System.out.println(m.getMondo().get(m.getPianoCorrente()).stampaMappaAggiornata());
+        m.cambioLuogo('d');
+        System.out.println(m.getMondo().get(m.getPianoCorrente()).stampaMappaAggiornata());
+        m.cambioLuogo('d');
+        System.out.println(m.getMondo().get(m.getPianoCorrente()).stampaMappaAggiornata());
+        m.cambioLuogo('u');
+        System.out.println(m.getMondo().get(m.getPianoCorrente()).stampaMappaAggiornata());
+        m.cambioLuogo('u');
+        System.out.println(m.getMondo().get(m.getPianoCorrente()).stampaMappaAggiornata());
+
+
+
+
 
     }
 }
