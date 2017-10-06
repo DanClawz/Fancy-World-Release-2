@@ -61,12 +61,11 @@ public class Luogo {
     public void aggiornaMappa(char input) {
 
         Coordinata posNuova = posizioneNuova(input);
-        System.out.println(input);
 
         if (posNuova.getX() < 0) posNuova.setX(0);
         if (posNuova.getY() < 0) posNuova.setY(0);
-        if (posNuova.getX() > Mappa.NRIGHE) posNuova.setX(Mappa.NRIGHE-1);
-        if (posNuova.getY() > Mappa.NCOLONNE) posNuova.setY(Mappa.NCOLONNE-1);
+        if (posNuova.getX() >= Mappa.NRIGHE) posNuova.setX(Mappa.NRIGHE-1);
+        if (posNuova.getY() >= Mappa.NCOLONNE) posNuova.setY(Mappa.NCOLONNE-1);
 
         /*
         Pseudocodice:
@@ -87,6 +86,7 @@ public class Luogo {
 
                 if (goal.equals(posNuova)) {
                     goalRaggiunto = true;
+                    //System.out.println("Goal raggiunto");
                 }
                 else goalRaggiunto = false;
             }
