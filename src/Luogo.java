@@ -7,9 +7,11 @@ public class Luogo {
     private Mappa mappaIniziale;
     private boolean passaggioRaggiunto, goalRaggiunto;
     private int piano;
+    private String nomeLuogo;
 
     public Luogo(String nomeFile, int piano) {
         this.piano = piano;
+        this.nomeLuogo = nomeFile.split("_")[1];
         mappaIniziale = new Mappa(nomeFile);
         mappa = mappaIniziale.getMap();
         passaggi = mappaIniziale.posizionePassaggi();
@@ -19,6 +21,7 @@ public class Luogo {
         posCorrente = start;
         passaggioRaggiunto = false;
         goalRaggiunto = false;
+
     }
 
 
@@ -52,6 +55,7 @@ public class Luogo {
 
     public void muovi(Coordinata posNew) {
         if (passaggi.contains(posCorrente)) mappa[posCorrente.getX()][posCorrente.getY()] = '○';
+        else if (goal.equals(posCorrente)) mappa[posCorrente.getX()][posCorrente.getY()] = 'X';
         else mappa[posCorrente.getX()][posCorrente.getY()] = '.';
         mappa[posNew.getX()][posNew.getY()] = '●';
         this.posCorrente = posNew;
@@ -86,7 +90,6 @@ public class Luogo {
 
                 if (goal.equals(posNuova)) {
                     goalRaggiunto = true;
-                    //System.out.println("Goal raggiunto");
                 }
                 else goalRaggiunto = false;
             }
@@ -150,6 +153,11 @@ public class Luogo {
         return goal;
     }
 
+    public boolean isGoalPresente() {
+        if (goal.getX() != -1 && goal.getY() != -1) return true;
+        return false;
+    }
+
     public ArrayList<Coordinata> getPassaggi() {
         return passaggi;
     }
@@ -160,5 +168,9 @@ public class Luogo {
 
     public Mappa getMappaIniziale() {
         return mappaIniziale;
+    }
+
+    public String getNomeLuogo() {
+        return nomeLuogo;
     }
 }

@@ -5,8 +5,10 @@ public class Mondo {
     final static int NLUOGHI = 3;
     private ArrayList<Luogo> mondo;
     private int pianoCorrente;
+    private String nomeMondo;
 
     public Mondo(String nome) {
+        this.nomeMondo = nome;
         mondo = new ArrayList<Luogo>();
         for (int i = 1; i <= NLUOGHI; i++) {
             String nomeFile = "";
@@ -54,8 +56,18 @@ public class Mondo {
         return mondo.get(pianoCorrente).isGoalRaggiunto();
     }
 
+    public String luogoGoal() {
+        for (Luogo l : mondo) {
+            if (l.isGoalPresente()) return l.getNomeLuogo();
+        }
+        return null;
+    }
+
     public String stampaMappa() {
-        return mondo.get(pianoCorrente).stampaMappaAggiornata();
+        return nomeMondo.toUpperCase() + "\n" +
+                mondo.get(pianoCorrente).getNomeLuogo() + "\n" +
+                "Il goal si trova in: " + luogoGoal() + "\n" +
+                mondo.get(pianoCorrente).stampaMappaAggiornata();
     }
 
 

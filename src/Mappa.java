@@ -28,7 +28,7 @@ public class Mappa {
         }
     }
 
-    public String stampaMappaIniziale() {
+    /*public String stampaMappaIniziale() {
         String mappaContorno = "";
         mappaContorno += "╔═══════════════╗" + "\n";
 
@@ -41,7 +41,7 @@ public class Mappa {
         }
         mappaContorno += "╚═══════════════╝" + "\n";
         return mappaContorno.replace(".", " ");
-    }
+    }*/
 
     public String getMappa() {
         return mappa;
