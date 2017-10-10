@@ -27,7 +27,7 @@ public class Mondo {
         else if (input == 'd' && !(pianoCorrente - 1 < 0)) nuovoPiano = pianoCorrente-1;
         else nuovoPiano = pianoCorrente;
 
-        for (Coordinata p : mondo.get(pianoCorrente).getPassaggi()) {               // controllo coordinate dei passaggi dei due luogi adiacenti -> se il cambio luogo è possibile
+        /*for (Coordinata p : mondo.get(pianoCorrente).getPassaggi()) {               // controllo coordinate dei passaggi dei due luogi adiacenti -> se il cambio luogo è possibile
             for (Coordinata c : mondo.get(nuovoPiano).getPassaggi()) {
                 if (!(pianoCorrente + 1 > mondo.size()-1) && p.equals(c) && mondo.get((pianoCorrente+1)).getPassaggi().contains(mondo.get(pianoCorrente).getPosCorrente()) && input == 'u') {
                     passaggioUguale = true;
@@ -40,7 +40,20 @@ public class Mondo {
                     break;
                 }
             }
+        }*/
+
+        for (Passaggio p1 : mondo.get(pianoCorrente).getLista_passaggi()) {
+            for (Passaggio p2 : mondo.get(nuovoPiano).getLista_passaggi()) {
+                if ((!(pianoCorrente + 1 > mondo.size()-1) && !(pianoCorrente - 1 < 0)) && (input == 'u' || input == 'd') && p1.equals(p2) && mondo.get(pianoCorrente).getPosCorrente().equals(p2.getCoordinata())) {
+                    System.out.println("Passaggio");
+                    passaggioUguale = true;
+                    mondo.get(nuovoPiano).setPassaggioRaggiunto(true);
+                    break;
+                }
+            }
         }
+
+
 
         if (input == 'u' && mondo.get(pianoCorrente).isPassaggioRaggiunto() && this.pianoCorrente < mondo.size()-1 && passaggioUguale)         //il passaggio viene effettuato se possibile
             ++this.pianoCorrente;

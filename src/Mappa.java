@@ -103,6 +103,18 @@ public class Mappa {
         return p;
     }
 
+    public ArrayList<Passaggio> passaggi() {
+        ArrayList<Passaggio> p = new ArrayList<Passaggio>();
+        for (int i = 0; i < NRIGHE; i++) {
+            for (int j = 0; j < NCOLONNE; j++) {
+                if (grid()[i][j] == '○') {
+                    p.add(new Passaggio(new Coordinata(i, j), true));
+                }
+            }
+        }
+        return p;
+    }
+
     public Coordinata posizioneGoal() {
         for (int i = 0; i < NRIGHE; i++) {
             for (int j = 0; j < NCOLONNE; j++) {

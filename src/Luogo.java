@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Luogo {
     private Coordinata start, goal, posCorrente;
     private ArrayList<Coordinata> passaggi, ostacoli;
+    private ArrayList<Passaggio> lista_passaggi;
     private char[][] mappa;
     private Mappa mappaIniziale;
     private boolean passaggioRaggiunto, goalRaggiunto;
@@ -14,7 +15,10 @@ public class Luogo {
         this.nomeLuogo = nomeFile.split("_")[1];
         mappaIniziale = new Mappa(nomeFile);
         mappa = mappaIniziale.getMap();
-        passaggi = mappaIniziale.posizionePassaggi();
+        //passaggi = mappaIniziale.posizionePassaggi();
+
+        lista_passaggi = mappaIniziale.passaggi();
+
         ostacoli = mappaIniziale.posizioneOstacoli();
         start = mappaIniziale.posizioneIniziale();
         goal = mappaIniziale.posizioneGoal();
@@ -54,7 +58,7 @@ public class Luogo {
     }
 
     public void muovi(Coordinata posNew) {
-        if (passaggi.contains(posCorrente)) mappa[posCorrente.getX()][posCorrente.getY()] = '○';
+        if (Passaggio.compareListaPassaggi(lista_passaggi, posCorrente)) mappa[posCorrente.getX()][posCorrente.getY()] = '○';
         else if (goal.equals(posCorrente)) mappa[posCorrente.getX()][posCorrente.getY()] = 'X';
         else mappa[posCorrente.getX()][posCorrente.getY()] = '.';
         mappa[posNew.getX()][posNew.getY()] = '●';
@@ -83,8 +87,9 @@ public class Luogo {
                     muovi(posNuova);
                 }
 
-                if (passaggi.contains(posNuova)) {
+                if (Passaggio.compareListaPassaggi(lista_passaggi, posNuova)) {
                     passaggioRaggiunto = true;
+
                 }
                 else passaggioRaggiunto = false;
 
@@ -158,8 +163,12 @@ public class Luogo {
         return false;
     }
 
-    public ArrayList<Coordinata> getPassaggi() {
+    /*public ArrayList<Coordinata> getPassaggi() {
         return passaggi;
+    }*/
+
+    public ArrayList<Passaggio> getLista_passaggi() {
+        return lista_passaggi;
     }
 
     public ArrayList<Coordinata> getOstacoli() {
