@@ -27,7 +27,7 @@ public class Coordinata {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o) {           //override di equals per gli oggetti Coordinata
         if (o instanceof Coordinata) {
             Coordinata c = (Coordinata)o;
             if (this.x == c.getX() && this.y == c.getY()) return true;

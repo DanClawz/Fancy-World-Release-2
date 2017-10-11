@@ -14,22 +14,21 @@ public class Gioco {
         while(true) {
 
             System.out.println(m.stampaMappa());
-            /*char in = MyUtil.controlledCharInput("Dove vuoi muoverti? [n-s-e-w-u-d][q per uscire] ", 'n', 's', 'e', 'w', 'u', 'd', 'q');
-            this.input = in;*/
+
             String in = MyUtil.stringInput("Dove vuoi muoverti? [n-s-e-w-u-d][q per uscire]: ");
             checkInput(in);
 
-            //if (input ==)
-            if(input == 'n' || input == 's' || input == 'e' || input == 'w') {
-                //for (int i = 0; i < n; i++) {
-                    m.getMondo().get(m.getPianoCorrente()).aggiornaMappa(input);
-                //}
-            }
-            else if (input == 'u' || input == 'd') {
+
+            if(input == 'n' || input == 's' || input == 'e' || input == 'w')
+                m.getMondo().get(m.getPianoCorrente()).aggiornaMappa(input);
+            else if (input == 'u' || input == 'd')
                 m.cambioLuogo(input);
-            }
             else if (input == 'q') System.exit(1);
 
+            //if (m.getMondo().get(m.getPianoCorrente()).getPosCorrente().equals(m.getMondo().get(m.getNuovoPiano()).))
+            if (Passaggio.compareListaPassaggi(m.getMondo().get(m.getNuovoPiano()).getLista_passaggi(), m.getMondo().get(m.getPianoCorrente()).getPosCorrente())) {
+                System.out.println("Il passaggio conduce verso: " + m.getMondo().get(m.getNuovoPiano()).getNomeLuogo());
+            }
 
             System.out.print("\n\n\n\n\n\n");
 

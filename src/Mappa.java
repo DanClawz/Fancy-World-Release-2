@@ -28,20 +28,6 @@ public class Mappa {
         }
     }
 
-    /*public String stampaMappaIniziale() {
-        String mappaContorno = "";
-        mappaContorno += "╔═══════════════╗" + "\n";
-
-        for (int i = 0; i < NRIGHE; i++) {
-            mappaContorno += "║";
-            for (int j = 0; j < NCOLONNE; j++) {
-                mappaContorno += map[i][j];
-            }
-            mappaContorno += "║" + "\n";
-        }
-        mappaContorno += "╚═══════════════╝" + "\n";
-        return mappaContorno.replace(".", " ");
-    }*/
 
     public String getMappa() {
         return mappa;
@@ -65,7 +51,7 @@ public class Mappa {
         }
 
         return griglia;
-    }
+    }       // traspone la stringa mappa in una matrice delle stesse dimensioni della mappa su file
 
     public Coordinata posizioneIniziale() {
         for (int i = 0; i < NRIGHE; i++) {
@@ -89,18 +75,6 @@ public class Mappa {
             }
         }
         return c;
-    }
-
-    public ArrayList<Coordinata> posizionePassaggi() {
-        ArrayList<Coordinata> p = new ArrayList<Coordinata>();
-        for (int i = 0; i < NRIGHE; i++) {
-            for (int j = 0; j < NCOLONNE; j++) {
-                if (grid()[i][j] == '○') {
-                    p.add(new Coordinata(i, j));
-                }
-            }
-        }
-        return p;
     }
 
     public ArrayList<Passaggio> passaggi() {

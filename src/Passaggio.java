@@ -3,6 +3,8 @@ import java.util.ArrayList;
 public class Passaggio {
     private Coordinata coordinata;
     private boolean aperto;
+    private Luogo dest;
+
 
     public Passaggio(Coordinata coordinata, boolean aperto) {
         this.coordinata = coordinata;
@@ -24,10 +26,10 @@ public class Passaggio {
             if (p.getCoordinata().equals(c)) return true;
         }
         return false;
-    }
+    }       // controlla che in una lista di passaggi ci sia la coordinata di una di questi passaggi
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o) {       //override equals per oggetti Passaggio
         if (o instanceof Passaggio) {
             Passaggio p = (Passaggio)o;
             if (this.coordinata.equals(p.getCoordinata())) return true;
@@ -52,4 +54,13 @@ public class Passaggio {
     public void setAperto(boolean aperto) {
         this.aperto = aperto;
     }
+
+    public void setDest(Luogo dest) {
+        this.dest = dest;
+    }
+
+    public Luogo getDest() {
+        return dest;
+    }
+
 }

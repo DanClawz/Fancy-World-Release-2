@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Luogo {
     private Coordinata start, goal, posCorrente;
-    private ArrayList<Coordinata> passaggi, ostacoli;
+    private ArrayList<Coordinata> ostacoli;
     private ArrayList<Passaggio> lista_passaggi;
     private char[][] mappa;
     private Mappa mappaIniziale;
@@ -15,43 +15,34 @@ public class Luogo {
         this.nomeLuogo = nomeFile.split("_")[1];
         mappaIniziale = new Mappa(nomeFile);
         mappa = mappaIniziale.getMap();
-        //passaggi = mappaIniziale.posizionePassaggi();
-
         lista_passaggi = mappaIniziale.passaggi();
-
         ostacoli = mappaIniziale.posizioneOstacoli();
         start = mappaIniziale.posizioneIniziale();
         goal = mappaIniziale.posizioneGoal();
         posCorrente = start;
         passaggioRaggiunto = false;
         goalRaggiunto = false;
-
     }
 
 
-    public String stampaMappaAggiornata() {
-
+    public String stampaMappa() {
         String mappaContorno = "";
 
         mappaContorno += "╔";
-        for (int i = 0; i < Mappa.NCOLONNE; i++) {
+        for (int i = 0; i < Mappa.NCOLONNE; i++)
             mappaContorno += "═";
-        }
         mappaContorno += "╗" + "\n";
-
 
         for (int i = 0; i < Mappa.NRIGHE; i++) {
             mappaContorno += "║";
-            for (int j = 0; j < Mappa.NCOLONNE; j++) {
+            for (int j = 0; j < Mappa.NCOLONNE; j++)
                 mappaContorno += mappa[i][j];
-            }
             mappaContorno += "║" + "\n";
         }
 
         mappaContorno += "╚";
-        for (int i = 0; i < Mappa.NCOLONNE; i++) {
+        for (int i = 0; i < Mappa.NCOLONNE; i++)
             mappaContorno += "═";
-        }
         mappaContorno += "╝" + "\n";
 
         return mappaContorno.replace(".", " ");
@@ -63,17 +54,18 @@ public class Luogo {
         else mappa[posCorrente.getX()][posCorrente.getY()] = '.';
         mappa[posNew.getX()][posNew.getY()] = '●';
         this.posCorrente = posNew;
-        //System.out.println(posCorrente);
-    }
+    }       // il metodo sostituisce il pallino del giocatore con uno spazio vuoto, e lo spazio vuoto con il pallino del giocatore
 
     public void aggiornaMappa(char input) {
-
+        boolean mossaPossibile = false, bordoToccato = false;
         Coordinata posNuova = posizioneNuova(input);
 
         if (posNuova.getX() < 0) posNuova.setX(0);
         if (posNuova.getY() < 0) posNuova.setY(0);
         if (posNuova.getX() >= Mappa.NRIGHE) posNuova.setX(Mappa.NRIGHE-1);
         if (posNuova.getY() >= Mappa.NCOLONNE) posNuova.setY(Mappa.NCOLONNE-1);
+
+        if (posNuova.equals(posCorrente)) bordoToccato = true;
 
         /*
         Pseudocodice:
@@ -82,23 +74,25 @@ public class Luogo {
         for (int i = (posCorrente.getX()-1 < 0 ? 0 : posCorrente.getX()-1); i <= (posCorrente.getX()+1 > Mappa.NRIGHE ? posCorrente.getX() : posCorrente.getX()+1); i++) {          //riscrivere eventualmente
             for (int j = (posCorrente.getY()-1 < 0 ? 0 : posCorrente.getY()-1); j <= (posCorrente.getY()+1 > Mappa.NCOLONNE ? posCorrente.getY() : posCorrente.getY()+1); j++) {    //riscrivere eventualmente
 
-
                 if (!ostacoli.contains(posNuova)) {
                     muovi(posNuova);
+                    mossaPossibile = true;
                 }
 
-                if (Passaggio.compareListaPassaggi(lista_passaggi, posNuova)) {
+                if (Passaggio.compareListaPassaggi(lista_passaggi, posNuova))
                     passaggioRaggiunto = true;
-
-                }
                 else passaggioRaggiunto = false;
 
-                if (goal.equals(posNuova)) {
+                if (goal.equals(posNuova))
                     goalRaggiunto = true;
-                }
                 else goalRaggiunto = false;
             }
         }
+
+        if (!mossaPossibile || bordoToccato) System.out.println("Mossa non possibile!");
+        else System.out.println("Mossa possibile!");
+
+        if (passaggioRaggiunto) System.out.println("Ti trovi su un passaggio!");
     }
 
     private Coordinata posizioneNuova(char input) {
