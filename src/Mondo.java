@@ -30,9 +30,11 @@ public class Mondo {
         for (Passaggio p1 : mondo.get(pianoCorrente).getLista_passaggi()) {         // controllo coordinate dei passaggi dei due luogi adiacenti -> se il cambio luogo è possibile
             for (Passaggio p2 : mondo.get(nuovoPiano).getLista_passaggi()) {
                 if (((input == 'u' && !(pianoCorrente + 1 > mondo.size()-1)) || (input == 'd' && !(pianoCorrente - 1 < 0))) && p1.equals(p2) && mondo.get(pianoCorrente).getPosCorrente().equals(p2.getCoordinata())) {
+
                     pianoCorrente = nuovoPiano;         //il passaggio viene effettuato se possibile
                     mondo.get(pianoCorrente).setPassaggioRaggiunto(true);
                     passaggioEffettuato = true;
+                    mondo.get(pianoCorrente).resetPassaggi();
                     break;
                 }
             }
@@ -43,12 +45,22 @@ public class Mondo {
 
         mondo.get(pianoCorrente).setPosCorrente(coordinataPassaggio);
         mondo.get(pianoCorrente).muovi(coordinataPassaggio);
+    }
 
-        /*if (!(pianoCorrente + 1 > mondo.size()-1)) this.nuovoPiano = pianoCorrente+1;         // si imposta il nuovo piano (se possibile) in base all'input (u / d)
-        else if (!(pianoCorrente - 1 < 0)) this.nuovoPiano = pianoCorrente-1;
-        else nuovoPiano = pianoCorrente;*/
+    public Luogo direzionePassaggio() {
+        if (pianoCorrente + 1 < mondo.size())
+            for (Passaggio p1 : mondo.get(pianoCorrente).getLista_passaggi())
+                for (Passaggio p2 : mondo.get(pianoCorrente+1).getLista_passaggi())
+                    if (p1.getCoordinata().equals(mondo.get(pianoCorrente).getPosCorrente()) && p1.equals(p2))
+                        return mondo.get(pianoCorrente+1);
 
+        if (pianoCorrente - 1 > -1)
+            for (Passaggio p1 : mondo.get(pianoCorrente).getLista_passaggi())
+                for (Passaggio p2 : mondo.get(pianoCorrente-1).getLista_passaggi())
+                    if (p1.getCoordinata().equals(mondo.get(pianoCorrente).getPosCorrente()) && p1.equals(p2))
+                        return mondo.get(pianoCorrente-1);
 
+        return mondo.get(pianoCorrente);
     }
 
     public boolean obbiettivoRaggiunto() {
@@ -69,10 +81,6 @@ public class Mondo {
                 mondo.get(pianoCorrente).stampaMappa();
     }
 
-    private void aggiornaPiano() {
-
-    }
-
     public ArrayList<Luogo> getMondo() {
         return mondo;
     }
@@ -81,14 +89,4 @@ public class Mondo {
         return pianoCorrente;
     }
 
-    public int getNuovoPiano() {
-        /*for (Passaggio p1 : mondo.get(pianoCorrente).getLista_passaggi()) {         // controllo coordinate dei passaggi dei due luogi adiacenti -> se il cambio luogo è possibile
-            for (Passaggio p2 : mondo.get(nuovoPiano).getLista_passaggi()) {
-                if (p1.equals(p2) && (mondo.get(pianoCorrente).getPosCorrente().equals(p1) || mondo.get(pianoCorrente).getPosCorrente().equals(p2))) {
-
-                }
-            }
-        }*/
-        return nuovoPiano;
-    }
 }

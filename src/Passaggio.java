@@ -28,6 +28,13 @@ public class Passaggio {
         return false;
     }       // controlla che in una lista di passaggi ci sia la coordinata di una di questi passaggi
 
+    public static Passaggio compareListaPass(ArrayList<Passaggio> passaggi, Coordinata c) {
+        for (Passaggio p : passaggi) {
+            if (p.getCoordinata().equals(c)) return p;
+        }
+        return null;
+    }
+
     @Override
     public boolean equals(Object o) {       //override equals per oggetti Passaggio
         if (o instanceof Passaggio) {

@@ -2,8 +2,8 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Mappa {
-    static final int NRIGHE = 10;
-    static final int NCOLONNE = 30;
+    static final int NRIGHE = 15;
+    static final int NCOLONNE = 50;
     private BufferedReader b;
     private String mappa = "";
     private char[][] map = {};

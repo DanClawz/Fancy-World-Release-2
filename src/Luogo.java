@@ -56,6 +56,13 @@ public class Luogo {
         this.posCorrente = posNew;
     }       // il metodo sostituisce il pallino del giocatore con uno spazio vuoto, e lo spazio vuoto con il pallino del giocatore
 
+    public void resetPassaggi() {
+        for (Passaggio p : lista_passaggi) {
+            mappa[p.getCoordinata().getX()][p.getCoordinata().getY()] = '○';
+        }
+    }
+
+
     public void aggiornaMappa(char input) {
         boolean mossaPossibile = false, bordoToccato = false;
         Coordinata posNuova = posizioneNuova(input);
@@ -156,10 +163,6 @@ public class Luogo {
         if (goal.getX() != -1 && goal.getY() != -1) return true;
         return false;
     }
-
-    /*public ArrayList<Coordinata> getPassaggi() {
-        return passaggi;
-    }*/
 
     public ArrayList<Passaggio> getLista_passaggi() {
         return lista_passaggi;
