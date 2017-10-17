@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b18cba1c-0bc8-48ad-b171-f2b178c4ae10" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Gioco.java" afterPath="$PROJECT_DIR$/src/Gioco.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Luogo.java" afterPath="$PROJECT_DIR$/src/Luogo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Mappe/mondo1_luogo3" afterPath="$PROJECT_DIR$/src/Mappe/mondo1_luogo3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Mondo.java" afterPath="$PROJECT_DIR$/src/Mondo.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,7 +21,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -28,14 +31,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mondo.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Gioco.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Gioco.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-6">
+              <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mondo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Mondo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state relative-caret-position="294">
+              <caret line="25" column="185" lean-forward="false" selection-start-line="25" selection-start-column="185" selection-end-line="25" selection-end-column="185" />
               <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2325#2326#0" expanded="true" />
+                <element signature="e#2392#2393#0" expanded="true" />
                 <element signature="method#luogoGoal#0;class#Mondo#0" expanded="false" />
-                <element signature="method#stampaMappa#0;class#Mondo#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -44,8 +59,8 @@
       <file leaf-file-name="Luogo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Luogo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1560">
-              <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+            <state relative-caret-position="149">
+              <caret line="89" column="46" lean-forward="false" selection-start-line="89" selection-start-column="46" selection-end-line="89" selection-end-column="46" />
               <folding>
                 <element signature="method#posizioneNuova#0;class#Luogo#0" expanded="false" />
                 <element signature="method#isGoalPresente#0;class#Luogo#0" expanded="false" />
@@ -57,12 +72,11 @@
       <file leaf-file-name="Mappa.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Mappa.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="85" column="36" lean-forward="false" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
+            <state relative-caret-position="241">
+              <caret line="58" column="38" lean-forward="true" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#grid#0;class#Mappa#0" expanded="false" />
-                <element signature="method#posizioneIniziale#0;class#Mappa#0" expanded="false" />
                 <element signature="method#posizioneOstacoli#0;class#Mappa#0" expanded="false" />
                 <element signature="method#posizioneGoal#0;class#Mappa#0" expanded="false" />
               </folding>
@@ -73,28 +87,11 @@
       <file leaf-file-name="Passaggio.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Passaggio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
+            <state relative-caret-position="313">
               <caret line="36" column="18" lean-forward="false" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
               <folding>
                 <element signature="method#comparePassaggio#0;class#Passaggio#0" expanded="false" />
                 <element signature="method#comparePassaggio1#0;class#Passaggio#0" expanded="false" />
-                <element signature="e#1727#1728#0" expanded="true" />
-                <element signature="e#1795#1796#0" expanded="true" />
-                <element signature="e#2305#2306#0" expanded="true" />
-                <element signature="e#2390#2391#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Coordinata.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Coordinata.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="29" column="36" lean-forward="false" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
-              <folding>
-                <element signature="method#Coordinata#0;class#Coordinata#0" expanded="false" />
-                <element signature="method#equals#0;class#Coordinata#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -119,6 +116,36 @@
                 <element signature="method#controlledStringInput#0;class#MyUtil#0" expanded="false" />
                 <element signature="method#controlledStringInput#1;class#MyUtil#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mondo1_luogo1" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Mappe/mondo1_luogo1">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="10" lean-forward="false" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mondo1_luogo2" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Mappe/mondo1_luogo2">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mondo1_luogo3" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Mappe/mondo1_luogo3">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,15 +179,15 @@
         <option value="$PROJECT_DIR$/src/InterpreteMappa.java" />
         <option value="$PROJECT_DIR$/src/MyUtil.java" />
         <option value="$PROJECT_DIR$/src/Coordinata.java" />
-        <option value="$PROJECT_DIR$/src/Gioco.java" />
-        <option value="$PROJECT_DIR$/src/Mappe/mondo1_luogo3" />
-        <option value="$PROJECT_DIR$/src/Mappe/mondo1_luogo1" />
-        <option value="$PROJECT_DIR$/src/Luogo.java" />
-        <option value="$PROJECT_DIR$/src/Mappe/mondo1_luogo2" />
         <option value="$PROJECT_DIR$/src/Mappa.java" />
         <option value="$PROJECT_DIR$/src/Passaggio.java" />
-        <option value="$PROJECT_DIR$/src/Mondo.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Mappe/mondo1_luogo3" />
+        <option value="$PROJECT_DIR$/src/Luogo.java" />
+        <option value="$PROJECT_DIR$/src/Gioco.java" />
+        <option value="$PROJECT_DIR$/src/Mappe/mondo1_luogo1" />
+        <option value="$PROJECT_DIR$/src/Mappe/mondo1_luogo2" />
+        <option value="$PROJECT_DIR$/src/Mondo.java" />
       </list>
     </option>
   </component>
@@ -205,6 +232,12 @@
               <item name="Fancy World Release 1.1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Fancy World Release 1.1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fancy World Release 1.1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Mappe" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -232,7 +265,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Passaggio">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -248,6 +281,20 @@
       <envs />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
+    </configuration>
+    <configuration name="Mondo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="Mondo" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Fancy World Release 1" />
+      <envs />
     </configuration>
     <configuration name="Passaggio" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -278,14 +325,16 @@
       <envs />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="Application.Passaggio" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Mondo" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Application.Passaggio" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Mondo" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Passaggio" />
       </list>
     </recent_temporary>
   </component>
@@ -317,7 +366,7 @@
       <workItem from="1507883980729" duration="3053000" />
       <workItem from="1508153846290" duration="1008000" />
       <workItem from="1508154991621" duration="5447000" />
-      <workItem from="1508229882068" duration="1580000" />
+      <workItem from="1508229882068" duration="5375000" />
     </task>
     <task id="LOCAL-00001" summary="Da fare:&#10;- classe Coordinata&#10;- iniziare classe Luogo&#10;- sistemare classe Mappa">
       <created>1506604619447</created>
@@ -417,25 +466,32 @@
       <option name="project" value="LOCAL" />
       <updated>1508230007342</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Da fare:&#10;- commit stupido">
+      <created>1508233659141</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1508233659141</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101744000" />
+    <option name="totallyTimeSpent" value="105539000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="133" y="161" width="1928" height="1052" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32769555" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43763214" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43763214" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -451,7 +507,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32769555" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
@@ -483,7 +538,8 @@
     <MESSAGE value="Da fare:&#10;- preparare Release 1 per Release 2" />
     <MESSAGE value="Da fare:&#10;- preparare ancora Release 1 per Release 2&#10;- I DANNATI PASSAGGI!!!" />
     <MESSAGE value="Da fare:&#10;- preparare ancora Release 1 per Release 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Da fare:&#10;- preparare ancora Release 1 per Release 2" />
+    <MESSAGE value="Da fare:&#10;- commit stupido" />
+    <option name="LAST_COMMIT_MESSAGE" value="Da fare:&#10;- commit stupido" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -518,7 +574,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#grid#0;class#Mappa#0" expanded="false" />
-            <element signature="method#posizioneIniziale#0;class#Mappa#0" expanded="false" />
             <element signature="method#posizioneOstacoli#0;class#Mappa#0" expanded="false" />
             <element signature="method#posizioneGoal#0;class#Mappa#0" expanded="false" />
           </folding>
@@ -564,8 +619,10 @@
         <state relative-caret-position="420">
           <caret line="28" column="16" lean-forward="false" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
           <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2325#2326#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
             <element signature="method#luogoGoal#0;class#Mondo#0" expanded="false" />
-            <element signature="method#stampaMappa#0;class#Mondo#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -583,8 +640,10 @@
         <state relative-caret-position="120">
           <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
           <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2325#2326#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
             <element signature="method#luogoGoal#0;class#Mondo#0" expanded="false" />
-            <element signature="method#stampaMappa#0;class#Mondo#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -641,7 +700,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#grid#0;class#Mappa#0" expanded="false" />
-            <element signature="method#posizioneIniziale#0;class#Mappa#0" expanded="false" />
             <element signature="method#posizioneOstacoli#0;class#Mappa#0" expanded="false" />
             <element signature="method#posizioneGoal#0;class#Mappa#0" expanded="false" />
           </folding>
@@ -661,8 +719,10 @@
         <state relative-caret-position="15">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2325#2326#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
             <element signature="method#luogoGoal#0;class#Mondo#0" expanded="false" />
-            <element signature="method#stampaMappa#0;class#Mondo#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -674,7 +734,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#grid#0;class#Mappa#0" expanded="false" />
-            <element signature="method#posizioneIniziale#0;class#Mappa#0" expanded="false" />
             <element signature="method#posizioneOstacoli#0;class#Mappa#0" expanded="false" />
             <element signature="method#posizioneGoal#0;class#Mappa#0" expanded="false" />
           </folding>
@@ -723,8 +782,10 @@
         <state relative-caret-position="15">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2325#2326#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
             <element signature="method#luogoGoal#0;class#Mondo#0" expanded="false" />
-            <element signature="method#stampaMappa#0;class#Mondo#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -736,7 +797,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#grid#0;class#Mappa#0" expanded="false" />
-            <element signature="method#posizioneIniziale#0;class#Mappa#0" expanded="false" />
             <element signature="method#posizioneOstacoli#0;class#Mappa#0" expanded="false" />
             <element signature="method#posizioneGoal#0;class#Mappa#0" expanded="false" />
           </folding>
@@ -778,8 +838,10 @@
         <state relative-caret-position="17">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2325#2326#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
             <element signature="method#luogoGoal#0;class#Mondo#0" expanded="false" />
-            <element signature="method#stampaMappa#0;class#Mondo#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -791,7 +853,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#grid#0;class#Mappa#0" expanded="false" />
-            <element signature="method#posizioneIniziale#0;class#Mappa#0" expanded="false" />
             <element signature="method#posizioneOstacoli#0;class#Mappa#0" expanded="false" />
             <element signature="method#posizioneGoal#0;class#Mappa#0" expanded="false" />
           </folding>
@@ -853,7 +914,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#grid#0;class#Mappa#0" expanded="false" />
-            <element signature="method#posizioneIniziale#0;class#Mappa#0" expanded="false" />
             <element signature="method#posizioneOstacoli#0;class#Mappa#0" expanded="false" />
             <element signature="method#posizioneGoal#0;class#Mappa#0" expanded="false" />
           </folding>
@@ -865,8 +925,10 @@
         <state relative-caret-position="17">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2325#2326#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
             <element signature="method#luogoGoal#0;class#Mondo#0" expanded="false" />
-            <element signature="method#stampaMappa#0;class#Mondo#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -887,14 +949,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Gioco.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-151">
-          <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Coordinata.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -903,30 +957,6 @@
             <element signature="method#Coordinata#0;class#Coordinata#0" expanded="false" />
             <element signature="method#equals#0;class#Coordinata#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mappe/mondo1_luogo3">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="41" lean-forward="false" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mappe/mondo1_luogo2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="35" lean-forward="false" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mappe/mondo1_luogo1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="15" lean-forward="false" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -953,22 +983,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Mappa.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="85" column="36" lean-forward="false" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
+        <state relative-caret-position="241">
+          <caret line="58" column="38" lean-forward="true" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#grid#0;class#Mappa#0" expanded="false" />
-            <element signature="method#posizioneIniziale#0;class#Mappa#0" expanded="false" />
             <element signature="method#posizioneOstacoli#0;class#Mappa#0" expanded="false" />
             <element signature="method#posizioneGoal#0;class#Mappa#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Passaggio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="36" column="18" lean-forward="false" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+          <folding>
+            <element signature="method#comparePassaggio#0;class#Passaggio#0" expanded="false" />
+            <element signature="method#comparePassaggio1#0;class#Passaggio#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Luogo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+        <state relative-caret-position="149">
+          <caret line="89" column="46" lean-forward="false" selection-start-line="89" selection-start-column="46" selection-end-line="89" selection-end-column="46" />
           <folding>
             <element signature="method#posizioneNuova#0;class#Luogo#0" expanded="false" />
             <element signature="method#isGoalPresente#0;class#Luogo#0" expanded="false" />
@@ -976,29 +1016,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Passaggio.java">
+    <entry file="file://$PROJECT_DIR$/src/Mappe/mondo1_luogo3">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="36" column="18" lean-forward="false" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
-          <folding>
-            <element signature="method#comparePassaggio#0;class#Passaggio#0" expanded="false" />
-            <element signature="method#comparePassaggio1#0;class#Passaggio#0" expanded="false" />
-            <element signature="e#1727#1728#0" expanded="true" />
-            <element signature="e#1795#1796#0" expanded="true" />
-            <element signature="e#2305#2306#0" expanded="true" />
-            <element signature="e#2390#2391#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mondo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding>
-            <element signature="method#luogoGoal#0;class#Mondo#0" expanded="false" />
-            <element signature="method#stampaMappa#0;class#Mondo#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1007,6 +1029,43 @@
         <state relative-caret-position="120">
           <caret line="8" column="89" lean-forward="false" selection-start-line="8" selection-start-column="89" selection-end-line="8" selection-end-column="89" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Mappe/mondo1_luogo1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="10" lean-forward="false" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Mappe/mondo1_luogo2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Gioco.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Mondo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="25" column="185" lean-forward="false" selection-start-line="25" selection-start-column="185" selection-end-line="25" selection-end-column="185" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2325#2326#0" expanded="true" />
+            <element signature="e#2392#2393#0" expanded="true" />
+            <element signature="method#luogoGoal#0;class#Mondo#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

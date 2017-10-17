@@ -86,8 +86,10 @@ public class Luogo {
                     mossaPossibile = true;
                 }
 
-                if (Passaggio.compareListaPassaggi(lista_passaggi, posNuova))
+                if (Passaggio.compareListaPassaggi(lista_passaggi, posNuova)) {
                     passaggioRaggiunto = true;
+                }
+
                 else passaggioRaggiunto = false;
 
                 if (goal.equals(posNuova))
