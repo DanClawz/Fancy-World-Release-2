@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b18cba1c-0bc8-48ad-b171-f2b178c4ae10" name="Default" comment="Da fare:&#10;- preparare ancora Release 1 per Release 2">
+    <list default="true" id="b18cba1c-0bc8-48ad-b171-f2b178c4ae10" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Mappa.java" afterPath="$PROJECT_DIR$/src/Mappa.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Mappe/mondo1_luogo1" afterPath="$PROJECT_DIR$/src/Mappe/mondo1_luogo1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Mappe/mondo1_luogo2" afterPath="$PROJECT_DIR$/src/Mappe/mondo1_luogo2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Mappe/mondo1_luogo3" afterPath="$PROJECT_DIR$/src/Mappe/mondo1_luogo3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Mondo.java" afterPath="$PROJECT_DIR$/src/Mondo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Passaggio.java" afterPath="$PROJECT_DIR$/src/Passaggio.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,21 +18,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+            <state relative-caret-position="120">
+              <caret line="8" column="89" lean-forward="false" selection-start-line="8" selection-start-column="89" selection-end-line="8" selection-end-column="89" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mondo.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Mondo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Mondo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="58" lean-forward="true" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
+            <state relative-caret-position="330">
+              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding>
                 <element signature="method#luogoGoal#0;class#Mondo#0" expanded="false" />
                 <element signature="method#stampaMappa#0;class#Mondo#0" expanded="false" />
@@ -155,7 +150,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/InterpreteMappa.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/MyUtil.java" />
         <option value="$PROJECT_DIR$/src/Coordinata.java" />
         <option value="$PROJECT_DIR$/src/Gioco.java" />
@@ -166,6 +160,7 @@
         <option value="$PROJECT_DIR$/src/Mappa.java" />
         <option value="$PROJECT_DIR$/src/Passaggio.java" />
         <option value="$PROJECT_DIR$/src/Mondo.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -322,7 +317,7 @@
       <workItem from="1507883980729" duration="3053000" />
       <workItem from="1508153846290" duration="1008000" />
       <workItem from="1508154991621" duration="5447000" />
-      <workItem from="1508229882068" duration="83000" />
+      <workItem from="1508229882068" duration="1580000" />
     </task>
     <task id="LOCAL-00001" summary="Da fare:&#10;- classe Coordinata&#10;- iniziare classe Luogo&#10;- sistemare classe Mappa">
       <created>1506604619447</created>
@@ -415,14 +410,22 @@
       <option name="project" value="LOCAL" />
       <updated>1507806209514</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Da fare:&#10;- preparare ancora Release 1 per Release 2">
+      <created>1508230007342</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1508230007342</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100247000" />
+    <option name="totallyTimeSpent" value="101744000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="133" y="161" width="1928" height="1052" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -544,6 +547,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -551,6 +555,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -617,6 +622,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="22" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -624,6 +630,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -884,6 +891,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-151">
           <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -902,6 +910,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="41" lean-forward="false" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -909,6 +918,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="35" lean-forward="false" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -916,6 +926,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="15" lean-forward="false" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -937,14 +948,6 @@
             <element signature="method#controlledStringInput#0;class#MyUtil#0" expanded="false" />
             <element signature="method#controlledStringInput#1;class#MyUtil#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -990,12 +993,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Mondo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="58" lean-forward="true" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
+        <state relative-caret-position="330">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding>
             <element signature="method#luogoGoal#0;class#Mondo#0" expanded="false" />
             <element signature="method#stampaMappa#0;class#Mondo#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="89" lean-forward="false" selection-start-line="8" selection-start-column="89" selection-end-line="8" selection-end-column="89" />
+          <folding />
         </state>
       </provider>
     </entry>

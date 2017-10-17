@@ -6,7 +6,7 @@ public class Main {
         switch(MyUtil.myMenu("Benvenuto, " + nomeGiocatore + "!", "Gioca", "Istruzioni", "Esci")) {
             case 1: Gioco gioco = new Gioco(nomeGiocatore); break;
             case 2: System.out.println("Istruzioni"); break;
-            case 3: System.out.println("Esci!"); System.exit(1); break;
+            case 3: System.out.println("Esci!"); System.exit(1); break; // commit stupido
         }
     }
 }
