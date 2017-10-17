@@ -3,13 +3,15 @@ import java.util.ArrayList;
 public class Passaggio {
     private Coordinata coordinata;
     private boolean aperto;
-    private Luogo dest;
+    private int pianoDest;
 
 
-    public Passaggio(Coordinata coordinata, boolean aperto) {
+    public Passaggio(Coordinata coordinata, int pianoDest, boolean aperto) {
         this.coordinata = coordinata;
         this.aperto = aperto;
+        this.pianoDest = pianoDest;
     }
+
 
     public boolean comparePassaggio(Coordinata c) {
         if (this.coordinata.equals(c)) return true;
@@ -28,6 +30,13 @@ public class Passaggio {
         return false;
     }       // controlla che in una lista di passaggi ci sia la coordinata di una di questi passaggi
 
+    public static int pianoDestPassaggio(ArrayList<Passaggio> passaggi, Coordinata c) {
+        for (Passaggio p : passaggi) {
+            if (p.getCoordinata().equals(c)) return p.getDest();
+        }
+        return -1;
+    }
+
     public static Passaggio compareListaPass(ArrayList<Passaggio> passaggi, Coordinata c) {
         for (Passaggio p : passaggi) {
             if (p.getCoordinata().equals(c)) return p;
@@ -43,6 +52,10 @@ public class Passaggio {
             else return false;
         }
         return false;
+    }
+
+    public String toString() {
+        return "Passaggio: " + coordinata + ", " + pianoDest;
     }
 
 
@@ -62,12 +75,17 @@ public class Passaggio {
         this.aperto = aperto;
     }
 
-    public void setDest(Luogo dest) {
-        this.dest = dest;
+    public void setDest(int pianoDest) {
+        this.pianoDest = pianoDest;
     }
 
-    public Luogo getDest() {
-        return dest;
+    public int getDest() {
+        return pianoDest;
     }
 
+
+
+    public static void main(String args[]) {
+        System.out.println(new Mappa("./src/Mappe/mondo1_luogo1").passaggi());
+    }
 }

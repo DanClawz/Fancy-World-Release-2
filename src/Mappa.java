@@ -2,8 +2,8 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Mappa {
-    static final int NRIGHE = 15;
-    static final int NCOLONNE = 50;
+    static final int NRIGHE = 5;
+    static final int NCOLONNE = 10;
     private BufferedReader b;
     private String mappa = "";
     private char[][] map = {};
@@ -81,11 +81,13 @@ public class Mappa {
         ArrayList<Passaggio> p = new ArrayList<Passaggio>();
         for (int i = 0; i < NRIGHE; i++) {
             for (int j = 0; j < NCOLONNE; j++) {
-                if (grid()[i][j] == '○') {
-                    p.add(new Passaggio(new Coordinata(i, j), true));
+                if (Character.isDigit(map[i][j])) {
+                    p.add(new Passaggio(new Coordinata(i, j), Character.getNumericValue(map[i][j]), true));
+                    map[i][j] = '○';
                 }
             }
         }
+
         return p;
     }
 
