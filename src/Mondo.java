@@ -34,22 +34,6 @@ public class Mondo {
         mondo.get(pianoCorrente-1).muovi(coordinataPassaggio);
     }
 
-    /*public Luogo direzionePassaggio() {
-        if (pianoCorrente + 1 < mondo.size())
-            for (Passaggio p1 : mondo.get(pianoCorrente).getLista_passaggi())
-                for (Passaggio p2 : mondo.get(pianoCorrente+1).getLista_passaggi())
-                    if (p1.getCoordinata().equals(mondo.get(pianoCorrente).getPosCorrente()) && p1.equals(p2))
-                        return mondo.get(pianoCorrente+1);
-
-        if (pianoCorrente - 1 > -1)
-            for (Passaggio p1 : mondo.get(pianoCorrente).getLista_passaggi())
-                for (Passaggio p2 : mondo.get(pianoCorrente-1).getLista_passaggi())
-                    if (p1.getCoordinata().equals(mondo.get(pianoCorrente).getPosCorrente()) && p1.equals(p2))
-                        return mondo.get(pianoCorrente-1);
-
-        return mondo.get(pianoCorrente);
-    }*/
-
     public boolean obbiettivoRaggiunto() {
         return mondo.get(pianoCorrente-1).isGoalRaggiunto();
     }

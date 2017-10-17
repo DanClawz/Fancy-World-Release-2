@@ -85,10 +85,8 @@ public class Luogo {
                     muovi(posNuova);
                     mossaPossibile = true;
                 }
-
-                if (Passaggio.compareListaPassaggi(lista_passaggi, posNuova)) {
+                if (Passaggio.compareListaPassaggi(lista_passaggi, posNuova))
                     passaggioRaggiunto = true;
-                }
 
                 else passaggioRaggiunto = false;
 
