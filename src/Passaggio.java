@@ -4,6 +4,7 @@ public class Passaggio {
     private Coordinata coordinata;
     private boolean aperto;
     private int pianoDest;
+    private String tipoPassaggio;
 
 
     public Passaggio(Coordinata coordinata, int pianoDest, boolean aperto) {
@@ -81,6 +82,14 @@ public class Passaggio {
 
     public int getDest() {
         return pianoDest;
+    }
+
+    public String getTipoPassaggio() {
+        return tipoPassaggio;
+    }
+
+    public void setTipoPassaggio(String tipoPassaggio) {
+        this.tipoPassaggio = tipoPassaggio;
     }
 
 
