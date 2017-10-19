@@ -24,6 +24,21 @@ public class Passaggio {
         return null;
     }
 
+    public void assegnaTipoPassaggio() {
+        switch (pianoDest) {
+            case 3: this.tipoPassaggio = "legno"; this.aperto = false; break;
+            case 4: this.tipoPassaggio = "ferro"; this.aperto = false; break;
+            case 5: this.tipoPassaggio = "bronzo"; this.aperto = false; break;
+            case 6: this.tipoPassaggio = "argento"; this.aperto = false; break;
+            case 7: this.tipoPassaggio = "oro"; this.aperto = false; break;
+            case 8: this.tipoPassaggio = "titanite"; this.aperto = false; break;
+            case 9: this.tipoPassaggio = "cristallo"; this.aperto = false; break;
+            case 10: this.tipoPassaggio = "diamante"; this.aperto = false; break;
+            case 11: this.tipoPassaggio = "vibranio"; this.aperto = false; break;
+            case 12: this.tipoPassaggio = "misteriosa"; this.aperto = false; break;
+        }
+    }
+
     public static boolean compareListaPassaggi(ArrayList<Passaggio> passaggi, Coordinata c) {
         for (Passaggio p : passaggi) {
             if (p.getCoordinata().equals(c)) return true;

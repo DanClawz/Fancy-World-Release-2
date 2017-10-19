@@ -13,6 +13,15 @@ public class Gioco {
         while(true) {
             System.out.println(m.stampaMappa());
 
+            if (m.getMondo().get(m.getPianoCorrente()-1).isChiavePresente()) {
+                if (MyUtil.controlledCharInput("Vuoi raccogliere la chiave? [s-n]", 's', 'n') == 's') {
+                    System.out.println("Chiave raccolta!");
+                    m.getMondo().get(m.getPianoCorrente()-1).setChiave(null);
+                }
+                m.getMondo().get(m.getPianoCorrente()-1).setChiavePresente(false);
+            }
+
+
             String in = MyUtil.stringInput("Dove vuoi muoverti? [n-s-e-w-u-d][q per uscire]: ");
             checkInput(in);
 

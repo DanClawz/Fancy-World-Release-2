@@ -83,6 +83,7 @@ public class Mappa {
             for (int j = 0; j < NCOLONNE; j++) {
                 if (Character.isDigit(map[i][j])) {
                     p.add(new Passaggio(new Coordinata(i, j), Character.getNumericValue(map[i][j]), true));
+                    p.get(p.size()-1).assegnaTipoPassaggio();
                     map[i][j] = '○';
                 }
             }
@@ -91,10 +92,24 @@ public class Mappa {
         return p;
     }
 
+    public Chiave posizioneChiave() {
+        Chiave c = null;
+        for (int i = 0; i < NRIGHE; i++) {
+            for (int j = 0; j < NCOLONNE; j++) {
+                if (Character.isLetter(map[i][j])) {
+                    c = new Chiave(new Coordinata(i, j));
+                    c.setPassaggioDaAprire(map[i][j]);
+                    map[i][j] = '¶';
+                }
+            }
+        }
+        return c;
+    }
+
     public Coordinata posizioneGoal() {
         for (int i = 0; i < NRIGHE; i++) {
             for (int j = 0; j < NCOLONNE; j++) {
-                if (grid()[i][j] == 'X') {
+                if (grid()[i][j] == '⌂') {
                     return new Coordinata(i, j);
                 }
             }

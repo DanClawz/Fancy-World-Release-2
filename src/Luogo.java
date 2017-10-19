@@ -6,9 +6,10 @@ public class Luogo {
     private ArrayList<Passaggio> lista_passaggi;
     private char[][] mappa;
     private Mappa mappaIniziale;
-    private boolean passaggioRaggiunto, goalRaggiunto;
+    private boolean passaggioRaggiunto, goalRaggiunto, chiavePresente;
     private int piano;
     private String nomeLuogo;
+    private Chiave chiave;
 
     public Luogo(String nomeFile, int piano) {
         this.piano = piano;
@@ -19,9 +20,12 @@ public class Luogo {
         ostacoli = mappaIniziale.posizioneOstacoli();
         start = mappaIniziale.posizioneIniziale();
         goal = mappaIniziale.posizioneGoal();
+        chiave = mappaIniziale.posizioneChiave();
+
         posCorrente = start;
         passaggioRaggiunto = false;
         goalRaggiunto = false;
+        chiavePresente = false;
     }
 
 
@@ -50,6 +54,7 @@ public class Luogo {
 
     public void muovi(Coordinata posNew) {
         if (Passaggio.compareListaPassaggi(lista_passaggi, posCorrente)) mappa[posCorrente.getX()][posCorrente.getY()] = '○';
+        else if (chiave != null && chiave.getPosChiave().equals(posCorrente)) mappa[posCorrente.getX()][posCorrente.getY()] = '¶';
         else if (goal.equals(posCorrente)) mappa[posCorrente.getX()][posCorrente.getY()] = 'X';
         else mappa[posCorrente.getX()][posCorrente.getY()] = '.';
         mappa[posNew.getX()][posNew.getY()] = '●';
@@ -85,9 +90,13 @@ public class Luogo {
                     muovi(posNuova);
                     mossaPossibile = true;
                 }
+
+                if (chiave != null && chiave.getPosChiave().equals(posCorrente)) {
+                    chiavePresente = true;
+                }
+
                 if (Passaggio.compareListaPassaggi(lista_passaggi, posNuova))
                     passaggioRaggiunto = true;
-
                 else passaggioRaggiunto = false;
 
                 if (goal.equals(posNuova))
@@ -100,6 +109,7 @@ public class Luogo {
         else System.out.println("Mossa possibile!");
 
         if (passaggioRaggiunto) System.out.println("Ti trovi su un passaggio!");
+
     }
 
     private Coordinata posizioneNuova(char input) {
@@ -178,5 +188,21 @@ public class Luogo {
 
     public String getNomeLuogo() {
         return nomeLuogo;
+    }
+
+    public boolean isChiavePresente() {
+        return chiavePresente;
+    }
+
+    public void setChiavePresente(boolean chiavePresente) {
+        this.chiavePresente = chiavePresente;
+    }
+
+    public Chiave getChiave() {
+        return chiave;
+    }
+
+    public void setChiave(Chiave chiave) {
+        this.chiave = chiave;
     }
 }
