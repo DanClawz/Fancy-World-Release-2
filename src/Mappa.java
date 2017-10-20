@@ -98,7 +98,7 @@ public class Mappa {
             for (int j = 0; j < NCOLONNE; j++) {
                 if (Character.isLetter(map[i][j])) {
                     c = new Chiave(new Coordinata(i, j));
-                    c.setPassaggioDaAprire(map[i][j]);
+                    c.setPassaggioDaAprire(Character.toLowerCase(map[i][j]));
                     map[i][j] = '¶';
                 }
             }

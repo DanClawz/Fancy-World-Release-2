@@ -19,16 +19,27 @@ public class Mondo {
         pianoCorrente = 1;  // ATTENZIONE AGLI INDICI!!!!!
     }
 
-    public void cambioLuogo(char input) {
+    public void cambioLuogo(char input, ArrayList<Chiave> chiavi) {
         int nuovoPiano = Passaggio.pianoDestPassaggio(mondo.get(pianoCorrente-1).getLista_passaggi(), mondo.get(pianoCorrente-1).getPosCorrente());
         Coordinata coordinataPassaggio = mondo.get(pianoCorrente-1).getPosCorrente();
 
-        if (((input == 'u' && nuovoPiano > pianoCorrente) || (input == 'd' && nuovoPiano < pianoCorrente)) && Passaggio.compareListaPassaggi(mondo.get(pianoCorrente-1).getLista_passaggi(), coordinataPassaggio)) {
+
+        if (((input == 'u' && nuovoPiano > pianoCorrente) || (input == 'd' && nuovoPiano < pianoCorrente))
+                && Passaggio.compareListaPassaggi(mondo.get(pianoCorrente-1).getLista_passaggi(), coordinataPassaggio)
+                && (mondo.get(pianoCorrente-1).getChiave() == null && mondo.get(pianoCorrente-1).passaggioSuCoordinata(mondo.get(pianoCorrente-1).getPosCorrente()).isAperto()
+                || (mondo.get(pianoCorrente-1).getChiave() != null && chiavi.contains(mondo.get(pianoCorrente-1).getChiave())))) {
+
             this.pianoCorrente = nuovoPiano;
-            System.out.println("Aggiorna piano!");
+            Luogo l = mondo.get(pianoCorrente-1);
+            Coordinata posizione = l.getPosCorrente();
+            l.apriPassaggio(posizione, true);
+            //mondo.get(pianoCorrente-1).passaggioSuCoordinata(mondo.get(pianoCorrente-1).getPosCorrente()).setAperto(true);
             mondo.get(pianoCorrente-1).setPassaggioRaggiunto(true);
             mondo.get(pianoCorrente-1).resetPassaggi();
         }
+
+
+        else System.out.println("Passaggio non possibile! Chiave richiesta: " + mondo.get(pianoCorrente-1).passaggioSuCoordinata(mondo.get(pianoCorrente-1).getPosCorrente()).getTipoPassaggio());
 
         mondo.get(pianoCorrente-1).setPosCorrente(coordinataPassaggio);
         mondo.get(pianoCorrente-1).muovi(coordinataPassaggio);

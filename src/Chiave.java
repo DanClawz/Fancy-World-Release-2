@@ -26,7 +26,15 @@ public class Chiave {
         }
     }
 
-
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Chiave) {
+            Chiave c = (Chiave)o;
+            if (this.tipoChiave.equals(c.getTipoChiave())) return true;
+            else return false;
+        }
+        return false;
+    }
 
     public Coordinata getPosChiave() {
         return posChiave;

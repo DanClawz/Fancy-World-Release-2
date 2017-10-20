@@ -1,11 +1,13 @@
 public class Gioco {
     private String nomeGiocatore;
+    private Giocatore giocatore;
     private Mondo m;
     private char input;
 
     public Gioco(String nomeGiocatore) {
         this.nomeGiocatore = nomeGiocatore;
         m = new Mondo("mondo1");
+        this.giocatore = new Giocatore(nomeGiocatore);
         gioca();
     }
 
@@ -14,8 +16,10 @@ public class Gioco {
             System.out.println(m.stampaMappa());
 
             if (m.getMondo().get(m.getPianoCorrente()-1).isChiavePresente()) {
+                System.out.println(m.getMondo().get(m.getPianoCorrente()-1).getChiave().getTipoChiave());
                 if (MyUtil.controlledCharInput("Vuoi raccogliere la chiave? [s-n]", 's', 'n') == 's') {
                     System.out.println("Chiave raccolta!");
+                    giocatore.aggiungiChiave(m.getMondo().get(m.getPianoCorrente()-1).getChiave());
                     m.getMondo().get(m.getPianoCorrente()-1).setChiave(null);
                 }
                 m.getMondo().get(m.getPianoCorrente()-1).setChiavePresente(false);
@@ -29,7 +33,7 @@ public class Gioco {
             if(input == 'n' || input == 's' || input == 'e' || input == 'w')
                 m.getMondo().get(m.getPianoCorrente()-1).aggiornaMappa(input);
             else if (input == 'u' || input == 'd')
-                m.cambioLuogo(input);
+                m.cambioLuogo(input, giocatore.getChiavi());
             else if (input == 'q') System.exit(1);
 
             if (m.getMondo().get(m.getPianoCorrente()-1).isPassaggioRaggiunto())

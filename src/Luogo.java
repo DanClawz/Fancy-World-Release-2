@@ -108,7 +108,11 @@ public class Luogo {
         if (!mossaPossibile || bordoToccato) System.out.println("Mossa non possibile!");
         else System.out.println("Mossa possibile!");
 
-        if (passaggioRaggiunto) System.out.println("Ti trovi su un passaggio!");
+        if (passaggioRaggiunto) {
+            if (Passaggio.compareListaPass(lista_passaggi, posCorrente).getTipoPassaggio() != null)
+                System.out.println("Ti trovi su un passaggio! Tipo: " + Passaggio.compareListaPass(lista_passaggi, posCorrente).getTipoPassaggio());
+            else System.out.println("Ti trovi su un passaggio aperto!");
+        }
 
     }
 
@@ -119,6 +123,23 @@ public class Luogo {
         if (input == 'w') return new Coordinata(posCorrente.getX(), posCorrente.getY()-1);
         return null;
     }
+
+    public void apriPassaggio(Coordinata c, boolean aperto) {
+        for (Passaggio p : lista_passaggi) {
+            if (p.getCoordinata().equals(c)) {
+                p.setAperto(aperto);
+            }
+        }
+    }
+    public Passaggio passaggioSuCoordinata(Coordinata c) {
+        for (Passaggio p : lista_passaggi) {
+            if (p.getCoordinata().equals(c)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
 
 
     public int getPiano() {
