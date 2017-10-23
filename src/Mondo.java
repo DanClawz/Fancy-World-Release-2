@@ -20,26 +20,23 @@ public class Mondo {
     }
 
     public void cambioLuogo(char input, ArrayList<Chiave> chiavi) {
-        int nuovoPiano = Passaggio.pianoDestPassaggio(mondo.get(pianoCorrente-1).getLista_passaggi(), mondo.get(pianoCorrente-1).getPosCorrente());
-        Coordinata coordinataPassaggio = mondo.get(pianoCorrente-1).getPosCorrente();
-
+        int indice = pianoCorrente - 1;
+        int nuovoPiano = Passaggio.pianoDestPassaggio(mondo.get(indice).getLista_passaggi(), mondo.get(indice).getPosCorrente());
+        Coordinata coordinataPassaggio = mondo.get(indice).getPosCorrente();
 
         if (((input == 'u' && nuovoPiano > pianoCorrente) || (input == 'd' && nuovoPiano < pianoCorrente))
-                && Passaggio.compareListaPassaggi(mondo.get(pianoCorrente-1).getLista_passaggi(), coordinataPassaggio)
-                && (mondo.get(pianoCorrente-1).getChiave() == null && mondo.get(pianoCorrente-1).passaggioSuCoordinata(mondo.get(pianoCorrente-1).getPosCorrente()).isAperto()
-                || (mondo.get(pianoCorrente-1).getChiave() != null && chiavi.contains(mondo.get(pianoCorrente-1).getChiave())))) {
+                && (Passaggio.compareListaPassaggi(mondo.get(indice).getLista_passaggi(), coordinataPassaggio))
+                && (((mondo.get(indice).passaggioSuCoordinata(mondo.get(indice).getPosCorrente()).isAperto())) ||
+                Passaggio.matchChiavi(chiavi, mondo.get(indice).passaggioSuCoordinata(mondo.get(indice).getPosCorrente())))) {
 
             this.pianoCorrente = nuovoPiano;
-            Luogo l = mondo.get(pianoCorrente-1);
-            Coordinata posizione = l.getPosCorrente();
-            l.apriPassaggio(posizione, true);
-            //mondo.get(pianoCorrente-1).passaggioSuCoordinata(mondo.get(pianoCorrente-1).getPosCorrente()).setAperto(true);
+            mondo.get(pianoCorrente-1).apriPassaggio(mondo.get(pianoCorrente-1).getPosCorrente(), true);
             mondo.get(pianoCorrente-1).setPassaggioRaggiunto(true);
             mondo.get(pianoCorrente-1).resetPassaggi();
         }
 
-
-        else System.out.println("Passaggio non possibile! Chiave richiesta: " + mondo.get(pianoCorrente-1).passaggioSuCoordinata(mondo.get(pianoCorrente-1).getPosCorrente()).getTipoPassaggio());
+        else if (Passaggio.compareListaPassaggi(mondo.get(indice).getLista_passaggi(), coordinataPassaggio))
+            System.out.println("Passaggio non possibile! Chiave richiesta: " + mondo.get(pianoCorrente-1).passaggioSuCoordinata(mondo.get(pianoCorrente-1).getPosCorrente()).getTipoPassaggio());
 
         mondo.get(pianoCorrente-1).setPosCorrente(coordinataPassaggio);
         mondo.get(pianoCorrente-1).muovi(coordinataPassaggio);

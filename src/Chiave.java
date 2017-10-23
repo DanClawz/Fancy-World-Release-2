@@ -31,9 +31,17 @@ public class Chiave {
         if (o instanceof Chiave) {
             Chiave c = (Chiave)o;
             if (this.tipoChiave.equals(c.getTipoChiave())) return true;
-            else return false;
+        }
+        else if (o instanceof Passaggio) {
+            Passaggio p = (Passaggio)o;
+            if (this.tipoChiave.equals(p.getTipoPassaggio())) return true;
         }
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Chiave di " + this.tipoChiave;
     }
 
     public Coordinata getPosChiave() {

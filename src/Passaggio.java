@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Passaggio {
@@ -51,6 +52,15 @@ public class Passaggio {
             if (p.getCoordinata().equals(c)) return p.getDest();
         }
         return -1;
+    }
+
+    public static boolean matchChiavi(ArrayList<Chiave> chiavi, Passaggio p) {
+        for (Chiave c : chiavi) {
+            if (c.getTipoChiave().equals(p.getTipoPassaggio())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static Passaggio compareListaPass(ArrayList<Passaggio> passaggi, Coordinata c) {
