@@ -75,7 +75,10 @@ public class Passaggio {
         if (o instanceof Passaggio) {
             Passaggio p = (Passaggio)o;
             if (this.coordinata.equals(p.getCoordinata())) return true;
-            else return false;
+        }
+        else if (o instanceof Coordinata) {
+            Coordinata c = (Coordinata)o;
+            if (this.coordinata.equals(c)) return true;
         }
         return false;
     }

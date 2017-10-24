@@ -9,7 +9,9 @@ public class Luogo {
     private boolean passaggioRaggiunto, goalRaggiunto, chiavePresente;
     private int piano;
     private String nomeLuogo;
-    private Chiave chiave;
+    private boolean chiaveDepositata;
+
+    private ArrayList<Chiave> chiavi;
 
     public Luogo(String nomeFile, int piano) {
         this.piano = piano;
@@ -20,12 +22,14 @@ public class Luogo {
         ostacoli = mappaIniziale.posizioneOstacoli();
         start = mappaIniziale.posizioneIniziale();
         goal = mappaIniziale.posizioneGoal();
-        chiave = mappaIniziale.posizioneChiave();
+        chiavi = mappaIniziale.posizioniChiavi();
+
 
         posCorrente = start;
         passaggioRaggiunto = false;
         goalRaggiunto = false;
         chiavePresente = false;
+        chiaveDepositata = false;
     }
 
 
@@ -54,7 +58,7 @@ public class Luogo {
 
     public void muovi(Coordinata posNew) {
         if (Passaggio.compareListaPassaggi(lista_passaggi, posCorrente)) mappa[posCorrente.getX()][posCorrente.getY()] = '○';
-        else if (chiave != null && chiave.getPosChiave().equals(posCorrente)) mappa[posCorrente.getX()][posCorrente.getY()] = '¶';
+        else if (!chiavi.isEmpty() && Chiave.isChiavePresente(chiavi, posCorrente)) mappa[posCorrente.getX()][posCorrente.getY()] = '¶';
         else if (goal.equals(posCorrente)) mappa[posCorrente.getX()][posCorrente.getY()] = 'X';
         else mappa[posCorrente.getX()][posCorrente.getY()] = '.';
         mappa[posNew.getX()][posNew.getY()] = '●';
@@ -62,9 +66,8 @@ public class Luogo {
     }       // il metodo sostituisce il pallino del giocatore con uno spazio vuoto, e lo spazio vuoto con il pallino del giocatore
 
     public void resetPassaggi() {
-        for (Passaggio p : lista_passaggi) {
+        for (Passaggio p : lista_passaggi)
             mappa[p.getCoordinata().getX()][p.getCoordinata().getY()] = '○';
-        }
     }
 
 
@@ -83,6 +86,7 @@ public class Luogo {
         Pseudocodice:
         ...
          */
+
         for (int i = (posCorrente.getX()-1 < 0 ? 0 : posCorrente.getX()-1); i <= (posCorrente.getX()+1 > Mappa.NRIGHE ? posCorrente.getX() : posCorrente.getX()+1); i++) {          //riscrivere eventualmente
             for (int j = (posCorrente.getY()-1 < 0 ? 0 : posCorrente.getY()-1); j <= (posCorrente.getY()+1 > Mappa.NCOLONNE ? posCorrente.getY() : posCorrente.getY()+1); j++) {    //riscrivere eventualmente
 
@@ -91,9 +95,8 @@ public class Luogo {
                     mossaPossibile = true;
                 }
 
-                if (chiave != null && chiave.getPosChiave().equals(posCorrente)) {
+                if (!chiavi.isEmpty() && Chiave.isChiavePresente(chiavi, posCorrente))
                     chiavePresente = true;
-                }
 
                 if (Passaggio.compareListaPassaggi(lista_passaggi, posNuova))
                     passaggioRaggiunto = true;
@@ -132,15 +135,53 @@ public class Luogo {
         }
     }
     public Passaggio passaggioSuCoordinata(Coordinata c) {
-        for (Passaggio p : lista_passaggi) {
-            if (p.getCoordinata().equals(c)) {
+        for (Passaggio p : lista_passaggi)
+            if (p.getCoordinata().equals(c))
                 return p;
-            }
+        return null;
+    }
+
+    public boolean posLibera(Chiave c) {
+        if (!lista_passaggi.contains(c.getPosChiave()))
+            return true;
+        return false;
+    }
+
+    public void aggiungiChiave(Chiave c) {
+        if (posLibera(c)) {
+            chiavi.add(c);
+            this.chiaveDepositata = true;
         }
+        else System.out.println("La chiave non può essere depositata qui!");
+    }
+
+    public void rimuoviChiave(Chiave c) {
+        chiavi.remove(c);
+    }
+
+    public Chiave getChiave(Coordinata c) {
+        for (Chiave chiave : chiavi)
+            if (chiave.getPosChiave().equals(c)) return chiave;
         return null;
     }
 
 
+
+    public boolean isChiaveDepositata() {
+        return chiaveDepositata;
+    }
+
+    public void setChiaveDepositata(boolean chiaveDepositata) {
+        this.chiaveDepositata = chiaveDepositata;
+    }
+
+    public ArrayList<Chiave> getChiavi() {
+        return chiavi;
+    }
+
+    public void setChiavi(ArrayList<Chiave> chiavi) {
+        this.chiavi = chiavi;
+    }
 
     public int getPiano() {
         return piano;
@@ -219,11 +260,4 @@ public class Luogo {
         this.chiavePresente = chiavePresente;
     }
 
-    public Chiave getChiave() {
-        return chiave;
-    }
-
-    public void setChiave(Chiave chiave) {
-        this.chiave = chiave;
-    }
 }

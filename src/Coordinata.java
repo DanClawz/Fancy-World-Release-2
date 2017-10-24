@@ -31,7 +31,6 @@ public class Coordinata {
         if (o instanceof Coordinata) {
             Coordinata c = (Coordinata)o;
             if (this.x == c.getX() && this.y == c.getY()) return true;
-            else return false;
         }
         return false;
     }

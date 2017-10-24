@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Chiave {
     private Coordinata posChiave;
     private String tipoChiave;
@@ -26,6 +28,14 @@ public class Chiave {
         }
     }
 
+    public static boolean isChiavePresente(ArrayList<Chiave> chiavi, Coordinata coordinata) {
+        for (Chiave c : chiavi) {
+            if (c.getPosChiave().equals(coordinata)) return true;
+        }
+        return false;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (o instanceof Chiave) {
@@ -35,6 +45,13 @@ public class Chiave {
         else if (o instanceof Passaggio) {
             Passaggio p = (Passaggio)o;
             if (this.tipoChiave.equals(p.getTipoPassaggio())) return true;
+        }
+
+        else if (o instanceof Coordinata) {
+            Coordinata coord = (Coordinata)o;
+            if (this.posChiave.equals(coord)) {
+                return true;
+            }
         }
         return false;
     }

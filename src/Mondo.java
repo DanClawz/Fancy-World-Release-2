@@ -33,9 +33,15 @@ public class Mondo {
             mondo.get(pianoCorrente-1).apriPassaggio(mondo.get(pianoCorrente-1).getPosCorrente(), true);
             mondo.get(pianoCorrente-1).setPassaggioRaggiunto(true);
             mondo.get(pianoCorrente-1).resetPassaggi();
+            mondo.get(pianoCorrente-1).setChiaveDepositata(false);
         }
 
-        else if (Passaggio.compareListaPassaggi(mondo.get(indice).getLista_passaggi(), coordinataPassaggio))
+        else if ((Passaggio.compareListaPassaggi(mondo.get(indice).getLista_passaggi(), coordinataPassaggio) && (input == 'u' && nuovoPiano <= pianoCorrente) || (input == 'd' && nuovoPiano >= pianoCorrente))) {
+            char c = input == 'u' ? 'd' : 'u';
+            System.out.println("Direzione errata! Prova con: " + c);
+        }
+
+        else if (Passaggio.compareListaPassaggi(mondo.get(indice).getLista_passaggi(), coordinataPassaggio) &&  (!mondo.get(indice).passaggioSuCoordinata(mondo.get(indice).getPosCorrente()).isAperto()))
             System.out.println("Passaggio non possibile! Chiave richiesta: " + mondo.get(pianoCorrente-1).passaggioSuCoordinata(mondo.get(pianoCorrente-1).getPosCorrente()).getTipoPassaggio());
 
         mondo.get(pianoCorrente-1).setPosCorrente(coordinataPassaggio);
@@ -66,6 +72,17 @@ public class Mondo {
 
     public int getPianoCorrente() {
         return pianoCorrente;
+    }
+
+    public void depositaChiave(Chiave chiave) {
+        chiave.setPosChiave(mondo.get(pianoCorrente-1).getPosCorrente());
+        mondo.get(pianoCorrente-1).aggiungiChiave(chiave);
+    }
+
+    public Chiave raccogliChiave() {
+        Chiave c = mondo.get(pianoCorrente-1).getChiave(mondo.get(pianoCorrente-1).getPosCorrente());
+        mondo.get(pianoCorrente-1).rimuoviChiave(c);
+        return c;
     }
 
 

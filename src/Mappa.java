@@ -92,18 +92,20 @@ public class Mappa {
         return p;
     }
 
-    public Chiave posizioneChiave() {
-        Chiave c = null;
+    public ArrayList<Chiave> posizioniChiavi() {
+        ArrayList<Chiave> c = new ArrayList<Chiave>();
         for (int i = 0; i < NRIGHE; i++) {
             for (int j = 0; j < NCOLONNE; j++) {
                 if (Character.isLetter(map[i][j])) {
-                    c = new Chiave(new Coordinata(i, j));
-                    c.setPassaggioDaAprire(Character.toLowerCase(map[i][j]));
+                    Chiave t = new Chiave(new Coordinata(i, j));
+                    t.setPassaggioDaAprire(Character.toLowerCase(map[i][j]));
+                    c.add(t);
                     map[i][j] = '¶';
                 }
             }
         }
         return c;
+
     }
 
     public Coordinata posizioneGoal() {
