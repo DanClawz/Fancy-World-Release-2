@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Gioco {
     private String nomeGiocatore;
     private Giocatore giocatore;
@@ -15,8 +17,10 @@ public class Gioco {
         while(true) {
             System.out.println(m.stampaMappa());
 
-            if (m.getMondo().get(m.getPianoCorrente()-1).isChiavePresente() && !m.getMondo().get(m.getPianoCorrente()-1).isChiaveDepositata()) {    // controllo: se la chiave e' presente e se e' depositata
-                System.out.println(m.getMondo().get(m.getPianoCorrente()-1).getChiave(m.getMondo().get(m.getPianoCorrente()-1).getPosCorrente()));
+            Chiave chiavePosCorrente = m.getMondo().get(m.getPianoCorrente()-1).getChiave(m.getMondo().get(m.getPianoCorrente()-1).getPosCorrente());
+
+            if (m.getMondo().get(m.getPianoCorrente()-1).isChiavePresente() && !chiavePosCorrente.isDepositata()) {    // controllo: se la chiave e' presente e se e' depositata
+                System.out.println(chiavePosCorrente);
                 if (MyUtil.controlledCharInput("Vuoi raccogliere la chiave? [s-n]", 's', 'n') == 's') {
                     Chiave c = m.raccogliChiave();
                     giocatore.aggiungiChiave(c);
@@ -34,14 +38,18 @@ public class Gioco {
                 m.cambioLuogo(input, giocatore.getChiavi());
             else if (input == 'x') {
                 if (!giocatore.getChiavi().isEmpty()) {
-                    int i = MyUtil.myMenu("Scegli la chiave da depositare: ", giocatore.getChiavi().toString());
-                    Chiave chiaveNuova = giocatore.getChiavi().get(i-1);
-                    if(m.getMondo().get(m.getPianoCorrente()-1).posLibera(chiaveNuova)) {
-                        m.depositaChiave(chiaveNuova); // aggiunge la chiave dalla mappa
-                        giocatore.rimuoviChiave(chiaveNuova);    // rimuove la chiave dalla lista chiavi del giocatore
-                        System.out.println("Chiave depositata!");
+
+                    int i = MyUtil.myMenu("Scegli la chiave da depositare: ", opzioniDeposita(giocatore.getChiavi()));
+                    if (i != opzioniDeposita(giocatore.getChiavi()).length) {
+                        Chiave chiaveNuova = giocatore.getChiavi().get(i-1);
+                        if(m.getMondo().get(m.getPianoCorrente()-1).posLibera(chiaveNuova)) {
+                            m.depositaChiave(chiaveNuova); // aggiunge la chiave dalla mappa
+                            giocatore.rimuoviChiave(chiaveNuova);    // rimuove la chiave dalla lista chiavi del giocatore
+                            System.out.println("Chiave depositata!");
+                        }
+                        else System.out.println("La chiave non può essere depositata qui!");
                     }
-                    else System.out.println("La chiave non può essere depositata qui!");
+                    else System.out.println("Nessuna chiave depositata!");
                 }
                 else System.out.println("Non hai nessuna chiave!");
             }
@@ -58,6 +66,15 @@ public class Gioco {
                 break;
             }
         }
+    }
+
+    private String[] opzioniDeposita(ArrayList<Chiave> chiavi) {
+        String[] opzioni = new String[chiavi.size()+1];
+        for (int i = 0; i < chiavi.size(); i++) {
+            opzioni[i] = chiavi.get(i).getTipoChiave();
+        }
+        opzioni[opzioni.length-1] = "Non depositare";
+        return opzioni;
     }
 
     private void checkInput(String input) {

@@ -4,9 +4,11 @@ public class Chiave {
     private Coordinata posChiave;
     private String tipoChiave;
     private int passaggioDaAprire;
+    private boolean depositata;
 
     public Chiave(Coordinata posChiave) {
         this.posChiave = posChiave;
+        this.depositata = false;
     }
 
     public int getPassaggioDaAprire() {
@@ -59,6 +61,15 @@ public class Chiave {
     @Override
     public String toString() {
         return "Chiave di " + this.tipoChiave;
+    }
+
+
+    public boolean isDepositata() {
+        return depositata;
+    }
+
+    public void setDepositata(boolean depositata) {
+        this.depositata = depositata;
     }
 
     public Coordinata getPosChiave() {

@@ -97,6 +97,7 @@ public class Luogo {
 
                 if (!chiavi.isEmpty() && Chiave.isChiavePresente(chiavi, posCorrente))
                     chiavePresente = true;
+                else chiavePresente = false;
 
                 if (Passaggio.compareListaPassaggi(lista_passaggi, posNuova))
                     passaggioRaggiunto = true;
@@ -150,7 +151,7 @@ public class Luogo {
     public void aggiungiChiave(Chiave c) {
         if (posLibera(c)) {
             chiavi.add(c);
-            this.chiaveDepositata = true;
+            //this.chiaveDepositata = true;
         }
         else System.out.println("La chiave non può essere depositata qui!");
     }
@@ -163,6 +164,12 @@ public class Luogo {
         for (Chiave chiave : chiavi)
             if (chiave.getPosChiave().equals(c)) return chiave;
         return null;
+    }
+
+    public void setChiaviDepositate() {
+        for (Chiave c : chiavi) {
+            c.setDepositata(false);
+        }
     }
 
 

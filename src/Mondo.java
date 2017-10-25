@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Mondo {
 
-    final static int NLUOGHI = 3;
+    final static int NLUOGHI = 5;
     private ArrayList<Luogo> mondo;
     private int pianoCorrente;
     private String nomeMondo;
@@ -22,6 +22,7 @@ public class Mondo {
     public void cambioLuogo(char input, ArrayList<Chiave> chiavi) {
         int indice = pianoCorrente - 1;
         int nuovoPiano = Passaggio.pianoDestPassaggio(mondo.get(indice).getLista_passaggi(), mondo.get(indice).getPosCorrente());
+        int pianoPartenza;
         Coordinata coordinataPassaggio = mondo.get(indice).getPosCorrente();
 
         if (((input == 'u' && nuovoPiano > pianoCorrente) || (input == 'd' && nuovoPiano < pianoCorrente))
@@ -30,10 +31,12 @@ public class Mondo {
                 Passaggio.matchChiavi(chiavi, mondo.get(indice).passaggioSuCoordinata(mondo.get(indice).getPosCorrente())))) {
 
             this.pianoCorrente = nuovoPiano;
-            mondo.get(pianoCorrente-1).apriPassaggio(mondo.get(pianoCorrente-1).getPosCorrente(), true);
+            mondo.get(pianoCorrente-1).apriPassaggio(mondo.get(pianoCorrente-1).getPosCorrente(), true);        // apre il passaggio da a (partenza) verso b (destinazione)
             mondo.get(pianoCorrente-1).setPassaggioRaggiunto(true);
             mondo.get(pianoCorrente-1).resetPassaggi();
-            mondo.get(pianoCorrente-1).setChiaveDepositata(false);
+            mondo.get(pianoCorrente-1).setChiaviDepositate();
+
+
         }
 
         else if ((Passaggio.compareListaPassaggi(mondo.get(indice).getLista_passaggi(), coordinataPassaggio) && (input == 'u' && nuovoPiano <= pianoCorrente) || (input == 'd' && nuovoPiano >= pianoCorrente))) {
@@ -46,6 +49,12 @@ public class Mondo {
 
         mondo.get(pianoCorrente-1).setPosCorrente(coordinataPassaggio);
         mondo.get(pianoCorrente-1).muovi(coordinataPassaggio);
+
+        if (Passaggio.compareListaPassaggi(mondo.get(indice).getLista_passaggi(), coordinataPassaggio)) {
+            pianoPartenza = Passaggio.pianoDestPassaggio(mondo.get(pianoCorrente-1).getLista_passaggi(), mondo.get(pianoCorrente-1).getPosCorrente());
+            mondo.get(pianoCorrente-1).apriPassaggio(mondo.get(pianoPartenza-1).getPosCorrente(), true);        // apre il passaggio da b (destinazione) verso a (partenza)
+        }
+
     }
 
     public boolean obbiettivoRaggiunto() {
@@ -77,6 +86,8 @@ public class Mondo {
     public void depositaChiave(Chiave chiave) {
         chiave.setPosChiave(mondo.get(pianoCorrente-1).getPosCorrente());
         mondo.get(pianoCorrente-1).aggiungiChiave(chiave);
+        //mondo.get(pianoCorrente-1).setChiavePresente(true);
+        chiave.setDepositata(true);
     }
 
     public Chiave raccogliChiave() {
