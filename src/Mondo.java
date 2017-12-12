@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Mondo {
 
-    final static int NLUOGHI = 5;
+    final static int NLUOGHI = 3;
     private ArrayList<Luogo> mondo;
     private int pianoCorrente;
     private String nomeMondo;
